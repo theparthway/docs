@@ -118,6 +118,12 @@ const sidebars: SidebarsConfig = {
             link: { type: "doc", id: "developers/orderbook/test" },
             items: [],
         },
+        {
+            type: "category",
+            label: "COBi",
+            link: { type: "doc", id: "developers/cobi/cobi" },
+            items: [],
+        },
     ],
 
     cookbook: [
