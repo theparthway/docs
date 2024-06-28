@@ -2,6 +2,8 @@
 id: cobi
 ---
 
+import Image from "../../components/Image"
+
 # COBi
 
 COBi is an automated trading system designed to contribute liquidity to the garden orderbook AMM. It can be deployed on a server and left to run indefinitely, fulfilling the role of a filler by fetching and filling orders from the Catalog orderbook at the best possible price according to a configurable strategy.
@@ -28,7 +30,8 @@ Operators with a filler role in the garden staking system and ensure that all vo
 
 COBi performs certain actions to enable swaps on the garden orderbook. The following diagram illustrates the process of enabling swaps using COBi:
 
-![swap process](../images/cobi_swaps.png)
+<Image imageURL={"/img/cobi_swaps.png"} height={500} align={"center"}/>
+
 
 #### Ethereum Executor
  The swap details and next action are passed to the executor which interacts with the contract to execute the swap.Ethereum wallet contains the methods to interact with the HTLC contract.
