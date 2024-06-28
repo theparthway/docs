@@ -1,0 +1,5 @@
+---
+id: verify
+---
+
+# `POST` /verify

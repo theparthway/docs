@@ -1,0 +1,5 @@
+---
+id: nonce
+---
+
+# `GET` /nonce
