@@ -6,19 +6,16 @@ id: merry-services
 
 Merry supports following services:
 
-- Bitcoin regtest node | localhost:18443 && localhost:18444
-- Ethereum localnet node
-  - Ethereum | localhost:8545
-  - Arbitrum | localhost:8546
-- Garden components
-  - Orderbook | localhost:8080
-  - COBI | no port
-- Explorers
-  - Bitcoin Esplora | localhost:5050
-  - Ethereum Otterscan | localhost:5100
-  - Arbitrum Otterscan | localhost:5101
-- Indexers
-  - Bitcoin electrs indexer | localhost:50000 && localhost:30000
-- Databases
-  - Postgres | localhost:5432
-  - Redis | localhost:6379
+| Service                 | Port                    |
+| ----------------------- | ----------------------- |
+| Bitcoin regtest node    | localhost:18443 & 18444 |
+| Bitcoin Esplora         | localhost:5050          |
+| Bitcoin electrs indexer | localhost:50000 & 30000 |
+| Ethereum localnode      | localhost:8545          |
+| Ethereum Otterscan      | localhost:5100          |
+| Arbitrum localnode      | localhost:8546          |
+| Arbitrum Otterscan      | localhost:5101          |
+| Postgres                | localhost:5432          |
+| Redis                   | localhost:6379          |
+| Orderbook               | localhost:8080          |
+| COBI                    | no port                 |

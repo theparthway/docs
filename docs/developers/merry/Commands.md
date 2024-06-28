@@ -12,9 +12,9 @@ Merry provides a variety of commands to manage your testing environment:
 merry go
 ```
 
-Starts all services, including the Bitcoin regtest node, Ethereum localnet node, explorers for the nodes and the Garden components.
+Starts all services, including the Bitcoin regtest node, Ethereum localnet node, explorers for the nodes and the catalog services.
 
-- `--bare` flag: Starts only the multi-chain services (Bitcoin and Ethereum nodes with explorers) and excludes Garden components. This option is useful if you don't need the additional functionalities provided by Garden.
+- `--bare` flag: Starts only the multi-chain services (Bitcoin and Ethereum nodes with explorers) and excludes catalog services. This option is useful if you don't need the additional functionalities such as COBI and Orderbook by Catalog.
 
 - `--headless` flag: Starts all services except for frontend interfaces. This can be helpful for running merry in headless environments (e.g., servers) where a graphical user interface is not required.
 

@@ -123,11 +123,7 @@ const sidebars: SidebarsConfig = {
       type: 'category',
       label: 'Merry',
       link: { type: 'doc', id: 'developers/merry/merry' },
-      items: [
-        'developers/merry/merry-installation',
-        'developers/merry/merry-cmds',
-        'developers/merry/merry-services',
-      ],
+      items: ['developers/merry/merry-cmds', 'developers/merry/merry-services'],
     },
   ],
 
