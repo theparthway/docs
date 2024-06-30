@@ -120,8 +120,8 @@ const sidebars: SidebarsConfig = {
         },
         {
             type: "category",
-            label: "COBi",
-            link: { type: "doc", id: "developers/cobi/cobi" },
+            label: "Filler",
+            link: { type: "doc", id: "developers/filler/filler" },
             items: [],
         },
     ],
