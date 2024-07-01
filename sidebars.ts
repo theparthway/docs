@@ -123,6 +123,13 @@ const sidebars: SidebarsConfig = {
         },
       ],
     },
+
+    {
+      type: "category",
+      label: "Orderbook API",
+      link: { type: "doc", id: "developers/orderbook-api/ob-api" },
+      items: [],
+    },
   ],
 
   cookbook: [
