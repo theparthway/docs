@@ -4,12 +4,66 @@ sidebar_label: "Orderbook API"
 ---
 
 import ApiHeader from "./ApiHeader";
+import DocCardList from '@theme/DocCardList';
 
 # API Documentation
 
+<DocCardList
+items={[
+{
+type: "link",
+href: "#create-order",
+label: "Create Order",
+docId: "developers/orderbook-api/ob-api",
+description:"Create a new order"
+},
+{
+type: "link",
+href: "#get-order",
+label: "Get Order",
+docId: "developers/orderbook-api/ob-api",
+description:"Retrieve the details of an order by its ID"
+},
+{
+type: "link",
+href: "#authtoken",
+label: "AuthToken",
+docId: "developers/orderbook-api/ob-api",
+description:"Get a auth token"
+},
+{
+type: "link",
+href: "#subscribe-to-orders",
+label: "Subscribe to Orders",
+docId: "developers/orderbook-api/ob-api",
+description:"Subscribe to Orders"
+},
+{
+type: "link",
+href: "#fill-order",
+label: "Fill Order",
+docId: "developers/orderbook-api/ob-api",
+description:"Fill an order"
+},
+{
+type: "link",
+href: "#assets",
+label: "Assets",
+docId: "developers/orderbook-api/ob-api",
+description:"Get all the supported assets and chains"
+},{
+type: "link",
+href: "#nonce",
+label: "Nonce",
+docId: "developers/orderbook-api/ob-api",
+description:"Get random nonce"
+},
+]}
+/>
+
 ## Create Order
 
-<ApiHeader method="POST" path="https://api.garden.finance/createOrder" description="create a new order"/>
+<ApiHeader method="POST" path="https://api.garden.finance/createOrder" description="Create a new order"/>
 
 ### Payload
 
@@ -191,7 +245,7 @@ Every order involves two parties and two corresponding atomic swaps. The initiat
 
 ## AuthToken
 
-<ApiHeader method="POST" path="https://api.garden.finance/verify" description="get a auth token"/>
+<ApiHeader method="POST" path="https://api.garden.finance/verify" description="Get a auth token"/>
 
 This endpoint provides a JWT token that remains valid for 24 hours. To obtain the auth token, you need to send a message along with a signature that signs the message.
 
@@ -210,9 +264,9 @@ This endpoint provides a JWT token that remains valid for 24 hours. To obtain th
 
 You can use a random nonce to create a message and sign it. Alternatively, you can obtain a truly random nonce from the endpoint ([nonce](#nonce)).
 
-## Subscribe to Orderbook
+## Subscribe to Orders
 
-<ApiHeader method="WSS" path="https://api.garden.finance/" description="subscribe to orders"/>
+<ApiHeader method="WSS" path="https://api.garden.finance/" description="Subscribe to orders"/>
 
 To receive updates from the orderbook, you can connect to the websocket endpoint and use the subscription texts provided below. If there are no updates, the server will send a ping message every 60 seconds to keep the connection alive. You can send multiple subscription texts in a single websocket connection to receive updates for various criteria simultaneously.
 
@@ -274,9 +328,9 @@ The `orders` in the table above are of type [_Order_](#order-object).
 
 ## Fill Order
 
-<ApiHeader method="PUT" path="https://api.garden.finance/orders/:id" description="fill an order"/>
+<ApiHeader method="PUT" path="https://api.garden.finance/orders/:id" description="Fill an order"/>
 
-This API endpoint is used to fill an order. You can get all newly created orders by [subscribing to the websocket](#subscribing-to-orders) and then fill an order using this endpoint.
+This API endpoint is used to fill an order. You can get all newly created orders by [subscribing to orders](#subscribe-to-orders) and then fill an order using this endpoint.
 
 You must stake 210,000 SEED to be eligible to fill an order.
 
@@ -292,7 +346,7 @@ Include an `Authorization` header with your request. Learn how to obtain an auth
 
 ## Assets
 
-<ApiHeader method="GET" path="https://api.garden.finance/assets" description="get all the supported assets and chains"/>
+<ApiHeader method="GET" path="https://api.garden.finance/assets" description="Get all the supported assets and chains"/>
 
 The assets endpoint returns a JSON object listing all supported chains along with their associated assets available for trading on Garden. Each key in the JSON represents a blockchain supported by Garden, and the corresponding array lists the specific assets available for trading within that blockchain.
 
@@ -320,7 +374,7 @@ The assets endpoint returns a JSON object listing all supported chains along wit
 
 ## Nonce
 
-<ApiHeader method="GET" path="https://api.garden.finance/nonce" description="get random nonce"/>
+<ApiHeader method="GET" path="https://api.garden.finance/nonce" description="Get random nonce"/>
 
 The nonce endpoint provides a randomly generated string of length 16.
 
