@@ -33,12 +33,26 @@ We use these terms in the next sections to refer to the participants in the orde
 
 **Makers** initiate orders on the orderbook by submitting an **OrderRequest**. This request specifies the following details:
 
-- **Assets:** The specific assets to be exchanged (e.g., BTC for WBTC).
+- **Orderpair:** The assets to be exchanged (e.g., BTC for WBTC).
 - **Amounts:** The quantity of each asset involved in the trade (e.g., 0.1 BTC and 0.097 WBTC).
 - **Fee:** The amount the maker is willing to pay for order execution.
-- **Additional Parameters:** Refer to the dedicated (API)[TODO:] section for details on other configurable options.
+- **Additional Parameters:** Refer to the dedicated [API](../../orderbook-api/OrderbookAPI.md#create-order) section for details on other configurable options.
 
 Once submitted, the orderbook engine broadcasts the OrderRequest to all **fillers**. Fillers can then evaluate the offer based on their matching strategies. An order will only be matched if a filler identifies it as a profitable opportunity.
+
+### Orderpair
+
+In orderbook, an orderpair notation specifies the source and destination chains along with their assets. It consists of two identifiers combined with a dash ('-'), where each identifier includes the chain name and the atomic swap contract address separated by a colon (:). If it is Bitcoin chain, the keyword `primary` is used instead of the contract address.
+
+Every atomic swap contract has a fixed ERC20 token. This token is used to identify the assets being traded.
+
+Example:
+For a trade from WBTC on Ethereum to BTC on Bitcoin, the order pair is:
+`ethereum:0xa5e38d098b54c00f10e32e51647086232a9a0afd-bitcoin:primary`.
+
+The contract `0xa5e38d098b54c00f10e32e51647086232a9a0afd` supports WBTC on Ethereum. Hence orderbook parses this orderpair as WBTC on Ethereum to BTC on Bitcoin.
+
+You can get all the supported chains and their contract addresses [here](../../orderbook-api/OrderbookAPI.md#assets).
 
 ## Matching Orders
 
@@ -150,16 +164,15 @@ Orderbook supports the following chains:
 
 | Chain    | Contract Address                             |
 | -------- | -------------------------------------------- |
-| Bitcoin  | -                                            |
+| Bitcoin  | `-`                                          |
 | Ethereum | `0xA5E38d098b54C00F10e32E51647086232a9A0afD` |
 | Arbitrum | `0xa0fed4a95adfb0faec4c4c7e1babbdf2405c38de` |
 
 Bitcoin works differently. We can not create a smart contract as we do in Ethereum and use that for atomic swaps. Instead, we use scripts to create HTLCs. These scripts on generated on demand and are unique for every swap.
 
-More on contracts : Comming soon
+More on contracts : Coming soon
 
 Links to contracts:
 
 - [Ethereum](https://etherscan.io/address/0xA5E38d098b54C00F10e32E51647086232a9A0afD)
-
 - [Arbitrum](https://arbiscan.io/address/0xa0fed4a95adfb0faec4c4c7e1babbdf2405c38de)
