@@ -1,5 +1,0 @@
----
-id: verify
----
-
-# `POST` /verify

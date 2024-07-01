@@ -75,6 +75,17 @@ const sidebars: SidebarsConfig = {
 
   developers: [
     "developers/developers",
+
+    {
+      type: "category",
+      label: "Fundamentals",
+      link: { type: "doc", id: "developers/fundamentals/fundamentals" },
+      items: [
+        "developers/fundamentals/orderbook/ob",
+        "developers/fundamentals/filler/filler",
+      ],
+    },
+
     {
       type: "category",
       label: "SDK",
@@ -108,26 +119,6 @@ const sidebars: SidebarsConfig = {
             "developers/sdk/sdk-guides/swapping-btc-wbtc",
             "developers/sdk/sdk-guides/swapping-wbtc-btc",
             "developers/sdk/sdk-guides/1inch-integration",
-          ],
-        },
-      ],
-    },
-    {
-      type: "category",
-      label: "Orderbook",
-      link: { type: "doc", id: "developers/orderbook/orderbook" },
-      items: [
-        "developers/orderbook/order-status",
-        {
-          type: "category",
-          label: "API Reference",
-          link: { type: "doc", id: "developers/orderbook/api/api-reference" },
-          items: [
-            "developers/orderbook/api/create-order",
-            "developers/orderbook/api/get-order",
-            "developers/orderbook/api/assets",
-            "developers/orderbook/api/verify",
-            "developers/orderbook/api/nonce",
           ],
         },
       ],
