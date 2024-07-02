@@ -158,14 +158,6 @@ Let's combine the statuses to get a global status of the order:
 
 X here means status could be anything.
 
-## Typical Order Flow
-
-The successful flow of an order is as follows:
-
-![path](../../images/order_path.png)
-
-The `X` in the diagram represents many possible statuses. Checkout the [Order Status](#order-status) and [Atomic Swap Status](#atomic-swap-status) sections for more details.
-
 ## Supported chains
 
 Orderbook supports the following chains:
