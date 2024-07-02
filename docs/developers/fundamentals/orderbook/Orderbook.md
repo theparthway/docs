@@ -3,17 +3,9 @@ id: ob
 title: Orderbook
 ---
 
-import TOCInline from '@theme/TOCInline';
-
 # Orderbook
 
 At the core of the Garden lies the Orderbook. It is responsible for order creation, matching, and settlement. One can create orders, track their status, and securely settle them using [atomic swaps](../../../home/basics/swap/AtomicSwaps.md).
-
-## Table of Contents
-
-<TOCInline toc={toc.filter((node) => {
-return node.id !== 'table-of-contents';
-})} />
 
 ## Terminology
 
@@ -51,6 +43,8 @@ For a trade from WBTC on Ethereum to BTC on Bitcoin, the order pair is:
 `ethereum:0xa5e38d098b54c00f10e32e51647086232a9a0afd-bitcoin:primary`.
 
 The contract `0xa5e38d098b54c00f10e32e51647086232a9a0afd` supports WBTC on Ethereum. Hence orderbook parses this orderpair as WBTC on Ethereum to BTC on Bitcoin.
+
+![Orderpair](../../images/orderpair.png)
 
 You can get all the supported chains and their contract addresses [here](../../orderbook-api/OrderbookAPI.md#assets).
 
