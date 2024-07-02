@@ -1,10 +1,15 @@
 ---
 id: ob-api
-sidebar_label: "Orderbook API"
+sidebar_label: 'Orderbook API'
 ---
 
 import ApiHeader from "./ApiHeader";
 import DocCardList from '@theme/DocCardList';
+import UpdatedOrders from "./responseStructures/UpdatedOrders.mdx"
+import PendingAndUpdatedOrders from "./responseStructures/PendingAndUpdatedOrders.mdx"
+import Error from "./responseStructures/Error.mdx"
+import OpenOrders from "./responseStructures/OpenOrder.mdx"
+import OrderUpdates from "./responseStructures/OrderUpdates.mdx"
 
 # API Documentation
 
@@ -304,13 +309,13 @@ Regex is valid for the text after `subscribe::`
 
 ### Response Types
 
-| Subscription Type              | Response Structure                                                               |
-| ------------------------------ | -------------------------------------------------------------------------------- |
-| **Updated Orders**             | `{ "type": "rest.UpdatedOrders", "msg": { "orders": [], "error": "string" } }`   |
-| **Pending and Updated Orders** | `{ "type": "rest.UpdatedOrders", "msg": { "orders": [], "error": "string" } }`   |
-| **Order Updates**              | `{ "type": "rest.UpdatedOrder", "msg": { "order": {}, "error": "string" } }`     |
-| **Open Orders**                | `{ "type": "rest.OpenOrders", "msg": { "orders": [], "error": "string" } }`      |
-| **Error**                      | `{ "type": "rest.WebSocketError", "msg": { "code": "int", "error": "string" } }` |
+| Subscription Type              | Response Structure         |
+| ------------------------------ | -------------------------- |
+| **Updated Orders**             | <UpdatedOrders/>           |
+| **Pending and Updated Orders** | <PendingAndUpdatedOrders/> |
+| **Order Updates**              | <OrderUpdates/>            |
+| **Open Orders**                | <OpenOrders/>              |
+| **Error**                      | <Error/>                   |
 
 :::note
 The `orders` in the table above are of type [_Order_](#order-object).
@@ -344,21 +349,21 @@ The assets endpoint returns a JSON object listing all supported chains along wit
 
 ```js
 {
-  "bitcoin": [
-    "primary"
-  ],
-  "bitcoin_testnet": [
-    "primary"
-  ],
-  "ethereum": [
-    "0xA5E38d098b54C00F10e32E51647086232a9A0afD"
-  ],
-  "ethereum_arbitrum": [
-    "0x203DAC25763aE783Ad532A035FfF33d8df9437eE"
-  ],
-  "ethereum_sepolia": [
-    "0x130Ff59B75a415d0bcCc2e996acAf27ce70fD5eF"
-  ]
+ "bitcoin": [
+   "primary"
+ ],
+ "bitcoin_testnet": [
+   "primary"
+ ],
+ "ethereum": [
+   "0xA5E38d098b54C00F10e32E51647086232a9A0afD"
+ ],
+ "ethereum_arbitrum": [
+   "0x203DAC25763aE783Ad532A035FfF33d8df9437eE"
+ ],
+ "ethereum_sepolia": [
+   "0x130Ff59B75a415d0bcCc2e996acAf27ce70fD5eF"
+ ]
 }
 ```
 
