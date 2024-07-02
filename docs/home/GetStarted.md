@@ -5,14 +5,13 @@ id: get-started
 ---
 # What is Garden?
 
-Garden is the first instant Bitcoin liquidity layer in web3, a mobility/circulation module in the Bitcoin 2.0 stack. Whether you are a trader or a dApp, Garden enables blazing fast and accurately priced bitcoin liquidity for you.
+Garden is the first instant Bitcoin liquidity layer in web3, designed to provide fast and accurately priced bitcoin liquidity for traders and dApps.
 
 Garden exists at the crossroads created by the Bitcoin renaissance, which led to three parallel budding Bitcoin ecosystems or the Bitcoin 2.0 stack:
 
 1. **Bitcoin L1 and L2s**: Bitcoin as an ecosystem has become imaginative and moved from its 'liquid gold' beginnings. Ordinals and L2 chains have created an alternate BTC-powered DeFi ecosystem that wasn't considered possible before.
 2. **Bitcoin on EVM**: Bitcoin accounts for 85% of all cross-chain volume. Being the biggest asset in Web3, Bitcoin-related use cases are a mainstay of EVM DeFi.
 3. **Centralized Markets**: Bitcoin still tops the charts in Binance, and the approval of Bitcoin ETFs brought deserved credibility and institutional investments for Bitcoin.
-
 
 Bitcoin 2.0 is like a complex financial organism with its various centralized, decentralized, and siloed parts. It requires a deep, instant, and ownerless liquidity layer to function. That's where Garden comes in. 
 
