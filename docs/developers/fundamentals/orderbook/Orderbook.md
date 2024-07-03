@@ -136,21 +136,23 @@ Let's combine the statuses to get a global status of the order:
 | 2            | 0                            | 0                           | Matched                          |
 | 2            | 1                            | 0                           | Initiator Initiate Detected      |
 | 2            | 2                            | 0                           | Initiator Initiated              |
-| 2            | 3                            | X                           | Initiator Expired                |
+| 2            | 3                            | x                           | Initiator Expired                |
 | 2            | 2                            | 1                           | Follower Initiate Detected       |
 | 2            | 2                            | 2                           | Follower Initiated               |
-| 2            | X                            | 3                           | Follower Expired                 |
+| 2            | x                            | 3                           | Follower Expired                 |
 | 2            | 4                            | 2                           | Initiator Redeem Detected        |
 | 2            | 4                            | 4                           | Follower Redeem Detected         |
 | 3            | 6                            | 6                           | Settled (Both redeems confirmed) |
-| 2            | 5                            | X                           | Initiator Refund Detected        |
-| 2            | X                            | 5                           | Follower Refund Detected         |
-| 4            | 7                            | 7                           | Order SoftFailed                 |
+| 2            | 5                            | x                           | Initiator Refund Detected        |
+| 2            | x                            | 5                           | Follower Refund Detected         |
+| 4            | x                            | x                           | Order SoftFailed                 |
 | 5            | 7                            | 6                           | Order HardFailed                 |
 | 5            | 6                            | 7                           | Order HardFailed                 |
 | 6            | 0                            | 0                           | Order Cancelled                  |
 
-X here means status could be anything.
+:::note
+`x` here means status could be anything.
+:::
 
 ## Supported chains
 
@@ -163,8 +165,6 @@ Orderbook supports the following chains:
 | Arbitrum | `0xa0fed4a95adfb0faec4c4c7e1babbdf2405c38de` |
 
 Bitcoin works differently. We can not create a smart contract as we do in Ethereum and use that for atomic swaps. Instead, we use scripts to create HTLCs. These scripts on generated on demand and are unique for every swap.
-
-More on contracts : Coming soon
 
 Links to contracts:
 
