@@ -16,7 +16,7 @@ Starts all services, including the Bitcoin regtest node, Ethereum localnet node,
 
 - `--bare` flag: Starts only the multi-chain services (Bitcoin and Ethereum nodes with explorers) and excludes catalog services. This option is useful if you don't need the additional functionalities such as COBI and Orderbook by Catalog.
 
-- `--headless` flag: Starts all services except for frontend interfaces. This can be helpful for running merry in headless environments (e.g., servers) where a graphical user interface is not required.
+- `--headless` flag: Starts all services except for frontend interfaces. This can be helpful for running Merry in headless environments (e.g., servers) where a graphical user interface is not required.
 
 ### Stopping Merry
 
