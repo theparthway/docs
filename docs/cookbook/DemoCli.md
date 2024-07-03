@@ -1,11 +1,11 @@
 ---
-id: cli-tool-with-garden-sdk
+id: demo-cli
 ---
 
-# CLI tool with Garden SDK
+# Demo CLI
 
 :::note
-This guide is provided as an example to help you get accustomed to using the Garden SDK. It is not intended to serve as a standard for creating CLI tools with the Garden SDK. A proper tool will take into consideration many best practices and optimizations. In the example below, we have cut a lot of corners for simplicity. Full code is available here [Swapper CLI](https://github.com/gardenfi/swapper-cli).
+This guide is provided as an example to help you get accustomed to using the Garden SDK. It is not intended to serve as a standard for creating CLI tools with the Garden SDK. A proper tool will take into consideration many best practices and optimizations. In the example below, we have cut a lot of corners for simplicity. Full code is available here [gardenfi/demo-cli](https://github.com/gardenfi/demo-cli).
 :::
 
 # Introduction
@@ -20,7 +20,7 @@ This guide will walk you through building your own command-line interface (CLI) 
 
 You should have [Bun](https://bun.sh/), but you can use Nodejs too.
 
-```console
+```shell
 # Linux and macOS
 curl -fsSL https://bun.sh/install | bash
 
@@ -31,8 +31,8 @@ powershell -c "irm bun.sh/install.ps1 | iex"
 # Setting up your environment
 
 ```shell
-mkdir swapper-cli
-cd swapper-cli
+mkdir demo-cli
+cd demo-cli
 bun init -y
 ```
 
@@ -96,10 +96,10 @@ bun add ethers@6.8.0
 ```ts
 // File: src/command.ts
 
-import yargs from "yargs";
-import { hideBin } from "yargs/helpers";
+import yargs from 'yargs';
+import { hideBin } from 'yargs/helpers';
 
-import { type Argv } from "./types.ts";
+import { type Argv } from './types.ts';
 
 const ivar = yargs(hideBin(process.argv)).argv as Argv;
 let ccreator = yargs(hideBin(process.argv));
@@ -124,7 +124,7 @@ import { ivar, ccreator } from "./command.ts";
 console.log(ivar);
 ```
 
-**ivar** stands for **input variables** and **ccreator** stands for **command creator**
+**ivar** stands for input variables and **ccreator** stands for command creator.
 
 ![basic setup](./images/basic_setup_swapper.png)
 
@@ -181,9 +181,9 @@ export { logAddressAndBalance };
 // File: src/errors.ts
 
 class KeyError extends Error {
-  constructor(message = "Private key is undefined") {
+  constructor(message = 'Private key is undefined') {
     super(message);
-    this.name = "KeyError";
+    this.name = 'KeyError';
   }
 }
 
@@ -280,8 +280,8 @@ export type Argv = {
 ```ts
 // File: src/utility.ts
 
-import { writeFileSync, existsSync, readFileSync } from "fs";
-import { type DotConfig } from "./types.ts";
+import { writeFileSync, existsSync, readFileSync } from 'fs';
+import { type DotConfig } from './types.ts';
 
 function createDotConfig(dotConfigPath: string) {
   if (existsSync(dotConfigPath)) return;
@@ -291,7 +291,7 @@ function createDotConfig(dotConfigPath: string) {
 
 function readJsonFileSync(dotConfigPath: string): DotConfig {
   createDotConfig(dotConfigPath);
-  const fileContent = readFileSync(dotConfigPath, "utf-8");
+  const fileContent = readFileSync(dotConfigPath, 'utf-8');
   return JSON.parse(fileContent);
 }
 
@@ -309,11 +309,11 @@ Above code will read the **.swapper_config.json** file present in your home dire
 
 /* Previous Imports */
 
-import { writeFileSync } from "fs";
+import { writeFileSync } from 'fs';
 
 /* Constants */
 
-ccreator.command("createevmwallet", "creates a evm wallet", async () => {
+ccreator.command('createevmwallet', 'creates a evm wallet', async () => {
   /* Creating an EVM Wallet */
 
   dotConfig.evmPrivateKey = privateKey;
@@ -323,8 +323,8 @@ ccreator.command("createevmwallet", "creates a evm wallet", async () => {
 });
 
 ccreator.command(
-  "createbitcoinwallet",
-  "creates a bitcoin wallet",
+  'createbitcoinwallet',
+  'creates a bitcoin wallet',
   async () => {
     /* Creating a Bitcoin Wallet */
 
@@ -344,8 +344,8 @@ that's it! now whenever someone creates a wallet with their **private keys**, it
 // File: src/index.ts
 
 ccreator.command(
-  "getdetails",
-  "gets the contents of $HOME/.swapper_config.json",
+  'getdetails',
+  'gets the contents of $HOME/.swapper_config.json',
   () => {
     console.info(readJsonFileSync(DOT_CONFIG_PATH));
   }
@@ -365,14 +365,14 @@ ccreator.parse(); // <-- Don't forget that this should be at the end of `src/ind
 
 /* Previous Imports */
 
-import { sleep } from "bun";
+import { sleep } from 'bun';
 import {
   Assets,
   parseStatus,
   Actions,
   type Asset,
   type Order,
-} from "@gardenfi/orderbook";
+} from '@gardenfi/orderbook';
 
 import {
   getEVMWallet,
@@ -380,9 +380,9 @@ import {
   readJsonFileSync,
   logAddressAndBalance,
   getBitcoinWallet,
-} from "./utility.ts";
-import { Assets, parseStatus, Actions } from "@gardenfi/orderbook";
-import { KeyError, AmountError, WalletError } from "./errors.ts";
+} from './utility.ts';
+import { Assets, parseStatus, Actions } from '@gardenfi/orderbook';
+import { KeyError, AmountError, WalletError } from './errors.ts';
 
 async function swap(fromAsset: Asset, toAsset: Asset, amount: number) {
   const { bitcoinPrivateKey, evmPrivateKey } = dotConfig;
@@ -429,7 +429,7 @@ async function swap(fromAsset: Asset, toAsset: Asset, amount: number) {
   }
 }
 
-ccreator.command("swapwbtctobtc", "Swaps from WBTC to BTC", async () => {
+ccreator.command('swapwbtctobtc', 'Swaps from WBTC to BTC', async () => {
   const { amount } = ivar;
   if (!amount) throw new AmountError();
   await swap(Assets.ethereum_sepolia.WBTC, Assets.bitcoin_testnet.BTC, amount);
@@ -441,10 +441,10 @@ ccreator.command("swapwbtctobtc", "Swaps from WBTC to BTC", async () => {
 
 /* Previous Imports */
 
-import { BitcoinWallet, BitcoinProvider, EVMWallet } from "@catalogfi/wallets";
-import { JsonRpcProvider, Wallet } from "ethers";
-import { Orderbook, Chains } from "@gardenfi/orderbook";
-import { GardenJS } from "@gardenfi/core";
+import { BitcoinWallet, BitcoinProvider, EVMWallet } from '@catalogfi/wallets';
+import { JsonRpcProvider, Wallet } from 'ethers';
+import { Orderbook, Chains } from '@gardenfi/orderbook';
+import { GardenJS } from '@gardenfi/core';
 
 function getEVMWallet(
   evmPrivateKey: string,
@@ -467,7 +467,7 @@ async function getGarden(
   bitcoinWallet: BitcoinWallet
 ) {
   const orderbook = await Orderbook.init({
-    url: "https://stg-test-orderbook.onrender.com/",
+    url: 'https://stg-test-orderbook.onrender.com/',
     signer: new Wallet(evmPrivateKey, evmWallet.getProvider()),
   });
 
@@ -496,16 +496,16 @@ export {
 /* KeyError class */
 
 class WalletError extends Error {
-  constructor(message = "Wallets have not been initialised") {
+  constructor(message = 'Wallets have not been initialised') {
     super(message);
-    this.name = "WalletError";
+    this.name = 'WalletError';
   }
 }
 
 class AmountError extends Error {
-  constructor(message = "Amount is not specified") {
+  constructor(message = 'Amount is not specified') {
     super(message);
-    this.name = "AmountError";
+    this.name = 'AmountError';
   }
 }
 
@@ -525,7 +525,7 @@ The above code snippet does the following in order
 - Create **swapbtctowbtc**
 
 ```ts
-ccreator.command("swapbtctowbtc", "Swaps from BTC to WBTC", async () => {
+ccreator.command('swapbtctowbtc', 'Swaps from BTC to WBTC', async () => {
   const { amount } = ivar;
   if (!amount) throw new AmountError();
   await swap(Assets.bitcoin_testnet.BTC, Assets.ethereum_sepolia.WBTC, amount);
@@ -533,6 +533,8 @@ ccreator.command("swapbtctowbtc", "Swaps from BTC to WBTC", async () => {
 
 ccreator.parse();
 ```
+
+![swapbtctowbtc](./images/swapper_swapbtctowbtc.png)
 
 Ta-da! 🎉 Now you have both **WBTC to BTC** & **BTC to WBTC** swaps working.
 
