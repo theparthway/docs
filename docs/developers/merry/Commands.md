@@ -6,7 +6,7 @@ id: merry-cmds
 
 Merry provides a variety of commands to manage your testing environment:
 
-### Starting merry
+### Starting Merry
 
 ```bash
 merry go
@@ -18,7 +18,7 @@ Starts all services, including the Bitcoin regtest node, Ethereum localnet node,
 
 - `--headless` flag: Starts all services except for frontend interfaces. This can be helpful for running merry in headless environments (e.g., servers) where a graphical user interface is not required.
 
-### Stopping merry
+### Stopping Merry
 
 ```bash
 merry stop
@@ -89,7 +89,7 @@ merry completion <shell>
 
 Generate auto-completion scripts for your shell. Supported shells include bash, zsh, fish, and powershell.
 
-### Get the version of merry
+### Get the version of Merry
 
 ```bash
 merry version
