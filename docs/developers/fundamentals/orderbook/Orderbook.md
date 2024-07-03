@@ -166,7 +166,7 @@ Orderbook supports the following chains:
 
 Bitcoin works differently. We can not create a smart contract as we do in Ethereum and use that for atomic swaps. Instead, we use scripts to create HTLCs. These scripts on generated on demand and are unique for every swap.
 
-Links to contracts:
+### Links to contracts:
 
 - [Ethereum](https://etherscan.io/address/0xA5E38d098b54C00F10e32E51647086232a9A0afD)
 - [Arbitrum](https://arbiscan.io/address/0xa0fed4a95adfb0faec4c4c7e1babbdf2405c38de)
