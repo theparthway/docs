@@ -26,10 +26,7 @@ const sidebars: SidebarsConfig = {
           type: 'category',
           label: 'Swap',
           link: { type: 'doc', id: 'home/basics/swap/swap' },
-          items: [
-            'home/basics/swap/atomic-swaps',
-            'home/basics/swap/order-matching-engine',
-          ],
+          items: ['home/basics/swap/atomic-swaps', 'home/basics/swap/order-matching-engine'],
         },
         {
           type: 'category',
@@ -80,10 +77,7 @@ const sidebars: SidebarsConfig = {
       type: 'category',
       label: 'Fundamentals',
       link: { type: 'doc', id: 'developers/fundamentals/fundamentals' },
-      items: [
-        'developers/fundamentals/orderbook/ob',
-        'developers/fundamentals/filler/filler',
-      ],
+      items: ['developers/fundamentals/orderbook/ob', 'developers/fundamentals/filler/filler'],
     },
 
     {
