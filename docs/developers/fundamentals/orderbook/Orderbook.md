@@ -5,7 +5,7 @@ title: Orderbook
 
 # Orderbook
 
-At the core of the Garden lies the Orderbook. It is responsible for order creation, matching, and settlement. One can create orders, track their status, and securely settle them using [atomic swaps](../../../home/basics/swap/AtomicSwaps.md).
+At the core of the Garden lies the Orderbook. It is responsible for order creation, matching, and settlement. One can create orders, track their status, and securely settle them using [Atomic Swaps](../../../home/basics/swap/AtomicSwaps.md).
 
 ## Terminology
 
@@ -96,7 +96,7 @@ Every order has a `status` field, a number, which indicates the current status o
 - **HardFailed:** An **impossible** scenario, where one party has initiated, redeemed and refunded the swap resulting in a loss for the other party.
 - **Cancelled:** Order is cancelled by Orderbook because it is not matched within a certain time. Right now, this is 3 minutes. Every order has a timeout of 3 minutes. After that, it is cancelled by the Orderbook.
 
-The settlement process is a bit more complex. Let's take a look them in detail.
+The settlement process is a bit more complex. Let's take a look at it in detail.
 
 ### Atomic Swap Status
 
