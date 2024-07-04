@@ -34,16 +34,16 @@ import {
   BitcoinWallet,
   BitcoinProvider,
   EVMWallet,
-} from "@catalogfi/wallets";
-import { JsonRpcProvider, Wallet } from "ethers";
+} from '@catalogfi/wallets';
+import { JsonRpcProvider, Wallet } from 'ethers';
 
 const bitcoinProvider = new BitcoinProvider(BitcoinNetwork.Mainnet);
-const bitcoinPk = "YOUR BITCOIN PRIVATE KEY";
+const bitcoinPk = 'YOUR BITCOIN PRIVATE KEY';
 
 const bitcoinWallet = BitcoinWallet.fromPrivateKey(bitcoinPk, bitcoinProvider);
 
-const ethereumPk = "YOUR ETHEREUM PRIVATE KEY";
-const ethereumProvider = new JsonRpcProvider("https://rpc.ankr.com/eth");
+const ethereumPk = 'YOUR ETHEREUM PRIVATE KEY';
+const ethereumProvider = new JsonRpcProvider('https://rpc.ankr.com/eth');
 const signer = new Wallet(ethereumPk, ethereumProvider);
 
 const evmWallet = new EVMWallet(signer);
@@ -55,16 +55,16 @@ Checkout [Creating Wallets](./CreatingWallets.md) for more information on creati
 
 ## Creating the Orderbook Instance
 
-The orderbook keeps track of all your "orders." An "order" is simply a request to swap your BTC to WBTC (or vice versa) to the backend Garden systems. The `Orderbook` in `@gardenfi/orderbook` allows you to create orders and listen to them.
+The Orderbook keeps track of all your "orders." An "order" is simply a request to swap your BTC to WBTC (or vice versa) to the backend Garden systems. The `Orderbook` in `@gardenfi/orderbook` allows you to create orders and listen to them.
 
-To create the orderbook you need a signer. The reason a signer is needed is to sign a [siwe](https://eips.ethereum.org/EIPS/eip-4361) message and authenticate itself with the backend orderbook. The orderbook can be created using the constructor or using the `.init(..)` method. In this example we'll be using the latter as it also performs [siwe](https://eips.ethereum.org/EIPS/eip-4361) authentication.
+To create the Orderbook you need a signer. The reason a signer is needed is to sign a [siwe](https://eips.ethereum.org/EIPS/eip-4361) message and authenticate itself with the backend Orderbook. The Orderbook can be created using the constructor or using the `.init(..)` method. In this example we'll be using the latter as it also performs [siwe](https://eips.ethereum.org/EIPS/eip-4361) authentication.
 
 :::note
 The signer which `Orderbook.init` accepts is an instance of `JsonRpcSigner` from ethers@6.8.0
 :::
 
 ```ts
-import { Orderbook } from "@gardenfi/orderbook";
+import { Orderbook } from '@gardenfi/orderbook';
 
 // we can use the following signer if you are using a web3 provider
 // const signer = await new BrowserProvider(window.ethereum).getSigner();
@@ -95,11 +95,11 @@ From now the rest of the code will be written inside this async block.
 
 To swap BTC to WBTC, we'll make use of the `GardenJS` in `@gardenfi/core`. The core package is responsible for executing swaps.
 
-To create the `GardenJS` instance, we'll need the wallet object and orderbook we created before. The wallet object should be such that the keys are the chains and the values are the wallets. Checkout supported chains in [Supported Chains](../SupportedChains.md)
+To create the `GardenJS` instance, we'll need the wallet object and Orderbook we created before. The wallet object should be such that the keys are the chains and the values are the wallets. Checkout supported chains in [Supported Chains](../SupportedChains.md)
 
 ```ts
-import { Chains } from "@gardenfi/orderbook";
-import { GardenJS } from "@gardenfi/core";
+import { Chains } from '@gardenfi/orderbook';
+import { GardenJS } from '@gardenfi/core';
 
 const wallets = {
   [Chains.bitcoin]: bitcoinWallet,
@@ -114,7 +114,7 @@ Now that we have the Garden instance, we can swap BTC for WBTC. The first step i
 We'll also need to specify the assets we want to swap from and to. Since we want to swap from BTC on the Bitcoin chain to WBTC and Ethereum. These assets are specified in the `Assets` object.
 
 ```ts
-import { Assets } from "@gardenfi/orderbook";
+import { Assets } from '@gardenfi/orderbook';
 
 const sendAmount = 0.0001 * 1e8;
 const receiveAmount = (1 - 0.3 / 100) * sendAmount;
@@ -127,17 +127,17 @@ const orderId = await garden.swap(
 );
 ```
 
-This is just making a swap request. An actual swap happens if the filler accepts the request.
+This is just making a swap request. An actual swap happens if the Filler accepts the request.
 If you need to do anything related to your order, you will need the order ID.
 
-If a filler accepts our swap request, a series of steps need to be performed, and all of this has been abstracted in `GardenJS`. To learn more about this process, take a look at [Core Concepts](../CoreConcepts.md).
+If a Filler accepts our swap request, a series of steps need to be performed, and all of this has been abstracted in `GardenJS`. To learn more about this process, take a look at [Core Concepts](../CoreConcepts.md).
 
-We have just created a _swap request aka an order_. From now on we treat the swap request as an order. Any changes made to an order, like a filler filling it or user locking funds, will be updated via watchers in the backend orderbook. More on [Core Concepts](../CoreConcepts.md).
+We have just created a _swap request aka an order_. From now on we treat the swap request as an order. Any changes made to an order, like a Filler filling it or user locking funds, will be updated via watchers in the backend Orderbook. More on [Core Concepts](../CoreConcepts.md).
 
 To listen to orders created by your EVM address, you will need to subscribe to them by passing the EVM address you used to create the order.
 
 ```ts
-import { Actions, parseStatus } from "@gardenfi/orderbook";
+import { Actions, parseStatus } from '@gardenfi/orderbook';
 
 garden.subscribeOrders(await evmWallet.getAddress(), async (orders) => {
   // filter the order we have just created

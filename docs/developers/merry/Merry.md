@@ -9,9 +9,13 @@ import MerryTitle from "./Title";
 
 Streamline your multi-chain testing with Merry!
 
-This CLI tool leverages Docker to effortlessly set up a multi-chain testing environment in a single command. Merry includes Bitcoin regtest node, Ethereum localnet node, and essential Catalog services, providing a self-contained space to test your applications independently of external services.
+This CLI tool leverages Docker to effortlessly set up a multi-chain testing environment in a single command. Merry includes Bitcoin regtest node, Ethereum localnet node, and essential Catalog services(Filler and Orderbook), providing a self-contained space to test your applications independently of external services.
 
-It supports a variety of features, including a faucet, electrum services and an orderbook with COBI.
+It supports a variety of features, including a faucet, Electrum services and an Orderbook with Filler.
+
+Orderbook is an order matching engine developed by Catalog, use this [section](/docs/developers/fundamentals/orderbook/Orderbook.md) to learn more about it.
+
+Filler is a bot to fill orders based on strategies set, learn more about it in this [section](/docs/developers/fundamentals/filler/filler.md).
 
 ## Installation
 

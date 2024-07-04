@@ -118,7 +118,7 @@ Garden charges 0.3% as the swap fees. Fee is calculated as the difference betwee
 ### Order Object
 
 - Initiator: The party who creates the order.
-- Follower: The party who accepts the order, also known as the counterparty or filler.
+- Follower: The party who accepts the order, also known as the counterparty or Filler.
 
 | Field                   | Type          | Description                                                                                                              |
 | :---------------------- | :------------ | :----------------------------------------------------------------------------------------------------------------------- |
@@ -263,7 +263,7 @@ You can use a random nonce to create a message and sign it. Alternatively, you c
 
 <ApiHeader method="WSS" path="https://api.garden.finance/" description="Subscribe to orders"/>
 
-To receive updates from the orderbook, you can connect to the websocket endpoint and use the subscription texts provided below. If there are no updates, the server will send a ping message every 60 seconds to keep the connection alive. You can send multiple subscription texts in a single websocket connection to receive updates for various criteria simultaneously.
+To receive updates from the Orderbook, you can connect to the websocket endpoint and use the subscription texts provided below. If there are no updates, the server will send a ping message every 60 seconds to keep the connection alive. You can send multiple subscription texts in a single websocket connection to receive updates for various criteria simultaneously.
 
 - The ping message object is
 
@@ -333,8 +333,8 @@ You must stake 210,000 SEED to be eligible to fill an order.
 
 | Field            | Type     | Description                                  |
 | :--------------- | :------- | :------------------------------------------- |
-| `sendAddress`    | `string` | Address from which filler will deposit funds |
-| `receiveAddress` | `string` | Address where filler wants to receive funds  |
+| `sendAddress`    | `string` | Address from which Filler will deposit funds |
+| `receiveAddress` | `string` | Address where Filler wants to receive funds  |
 
 **Authentication:**
 Include an `Authorization` header with your request. Learn how to obtain an auth token [here](#authtoken).

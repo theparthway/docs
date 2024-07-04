@@ -6,7 +6,7 @@ id: bug-bounty
 
 # Overview
 
-Garden is the fastest way to swap BTC and WBTC, providing a 10x improvement over existing options. It is decentralized, trustless, audited and not a real garden.
+Garden is the fastest way to swap BTC and WBTC, providing a 10x improvement over existing options. It is decentralized, trustless, audited and not a real Garden.
 
 # Bounty Rewards
 
@@ -60,79 +60,79 @@ Our Bug Bounty Program invites skilled security researchers to proactively ident
 
 ### Critical
 
--   Exploits resulting in the permanent locking or theft of user funds.
--   Permanent DoS attacks (excluding volumetric attacks).
--   Remote Code Execution (RCE) - able to execute arbitrary commands on a remote device.
--   SQL Injection - able to write access to a database.
--   Server-Side Request Forgery (SSRF) - able to pivot to internal application and/or access credentials (not blind).
+- Exploits resulting in the permanent locking or theft of user funds.
+- Permanent DoS attacks (excluding volumetric attacks).
+- Remote Code Execution (RCE) - able to execute arbitrary commands on a remote device.
+- SQL Injection - able to write access to a database.
+- Server-Side Request Forgery (SSRF) - able to pivot to internal application and/or access credentials (not blind).
 
 ### High
 
--   Any governance voting result manipulation.
--   Permanent freezing of unclaimed yield.
--   Stored Cross-Site Scripting (XSS) - stored XSS with access to non HttpOnly cookies.
--   Subdomain Takeover - on a domain that sees heavy traffic or would be a convincing candidate for a phishing attack.
--   Cross-Site Request Forgery (CSRF) - leading to account takeover.
--   Account Takeover (ATO) - with no or minimal user interaction.
--   Insecure Direct Object Reference (IDOR) - read or write access to sensitive data or important fields that you do not have permission to.
--   SQL Injection - able to perform queries with a limited access user
+- Any governance voting result manipulation.
+- Permanent freezing of unclaimed yield.
+- Stored Cross-Site Scripting (XSS) - stored XSS with access to non HttpOnly cookies.
+- Subdomain Takeover - on a domain that sees heavy traffic or would be a convincing candidate for a phishing attack.
+- Cross-Site Request Forgery (CSRF) - leading to account takeover.
+- Account Takeover (ATO) - with no or minimal user interaction.
+- Insecure Direct Object Reference (IDOR) - read or write access to sensitive data or important fields that you do not have permission to.
+- SQL Injection - able to perform queries with a limited access user
 
 ### Medium
 
--   Griefing (e.g. no profit motive for an attacker, but damage to the users or the protocol)
--   CSRF - able to modify important information (authenticated)
--   IDOR - write access to modify objects that you do not have permission to
--   XSS - reflected/DOM XSS with access to cookies
+- Griefing (e.g. no profit motive for an attacker, but damage to the users or the protocol)
+- CSRF - able to modify important information (authenticated)
+- IDOR - write access to modify objects that you do not have permission to
+- XSS - reflected/DOM XSS with access to cookies
 
 ### Low
 
--   Directory listings
--   XSS - POST based XSS (with CSRF bypass)
--   Lack of HTTPS on dynamic pages (judged on a case-by-case basis)
--   Server information page (no credentials)
--   Subdomain Takeover - on an unused subdomain
+- Directory listings
+- XSS - POST based XSS (with CSRF bypass)
+- Lack of HTTPS on dynamic pages (judged on a case-by-case basis)
+- Server information page (no credentials)
+- Subdomain Takeover - on an unused subdomain
 
 ## Out of Scope
 
--   Any services hosted by third-party providers.
--   Any services hosted by Garden that are not explicitly mentioned in the Scope section.
--   Attacks that the reporter has already exploited themselves, leading to damage.
--   Attacks requiring access to leaked keys/credentials.
+- Any services hosted by third-party providers.
+- Any services hosted by Garden that are not explicitly mentioned in the Scope section.
+- Attacks that the reporter has already exploited themselves, leading to damage.
+- Attacks requiring access to leaked keys/credentials.
 
 ### Blockchain
 
--   Attacks requiring access to privileged addresses (governance, strategist).
--   Incorrect data supplied by third party oracles.
-    -   Not to exclude oracle manipulation/flash loan attacks.
--   Basic economic governance attacks (e.g. 51% attack).
--   Lack of liquidity.
--   Best practice critiques.
--   Sybil attacks.
--   DoS/DDoS of Garden Finance infrastructure.
+- Attacks requiring access to privileged addresses (governance, strategist).
+- Incorrect data supplied by third party oracles.
+  - Not to exclude oracle manipulation/flash loan attacks.
+- Basic economic governance attacks (e.g. 51% attack).
+- Lack of liquidity.
+- Best practice critiques.
+- Sybil attacks.
+- DoS/DDoS of Garden Finance infrastructure.
 
 ### URLs & APIs
 
--   Broken Link Hijacking issues are categorized as low severity and are not eligible for rewards.
--   Clickjacking on pages with no sensitive actions.
--   Cross-Site Request Forgery (CSRF) on unauthenticated forms or forms with no sensitive actions.
--   Attacks requiring MITM or physical access to a user's device.
--   Previously known vulnerable libraries without a working Proof of Concept.
--   Comma Separated Values (CSV) injection without demonstrating a vulnerability.
--   Missing best practices in SSL/TLS configuration.
--   Any activity that could lead to the disruption of our service (DoS).
--   Content spoofing and text injection issues without showing an attack vector/without being able to modify HTML/CSS.
--   Rate limiting or brute force issues.
--   Invalidation/expiry on CDN assets.
--   Missing best practices in Content Security Policy.
--   Missing `HttpOnly` or Secure flags on cookies.
--   Missing email best practices (Invalid, incomplete or missing SPF/DKIM/DMARC records, etc.).
--   Vulnerabilities only affecting users of outdated or unpatched browsers [Less than 2 stable versions behind the latest released stable version].
--   Software version disclosure / Banner identification issues / Descriptive error messages or headers (e.g. stack traces, application or server errors).
--   Public Zero-day vulnerabilities that have had an official patch for less than 1 month will be awarded on a case by case basis.
--   Tabnabbing.
--   Open redirect - unless an additional security implication can be demonstrated.
--   Self XSS.
--   Able to retrieve user's public information.
+- Broken Link Hijacking issues are categorized as low severity and are not eligible for rewards.
+- Clickjacking on pages with no sensitive actions.
+- Cross-Site Request Forgery (CSRF) on unauthenticated forms or forms with no sensitive actions.
+- Attacks requiring MITM or physical access to a user's device.
+- Previously known vulnerable libraries without a working Proof of Concept.
+- Comma Separated Values (CSV) injection without demonstrating a vulnerability.
+- Missing best practices in SSL/TLS configuration.
+- Any activity that could lead to the disruption of our service (DoS).
+- Content spoofing and text injection issues without showing an attack vector/without being able to modify HTML/CSS.
+- Rate limiting or brute force issues.
+- Invalidation/expiry on CDN assets.
+- Missing best practices in Content Security Policy.
+- Missing `HttpOnly` or Secure flags on cookies.
+- Missing email best practices (Invalid, incomplete or missing SPF/DKIM/DMARC records, etc.).
+- Vulnerabilities only affecting users of outdated or unpatched browsers [Less than 2 stable versions behind the latest released stable version].
+- Software version disclosure / Banner identification issues / Descriptive error messages or headers (e.g. stack traces, application or server errors).
+- Public Zero-day vulnerabilities that have had an official patch for less than 1 month will be awarded on a case by case basis.
+- Tabnabbing.
+- Open redirect - unless an additional security implication can be demonstrated.
+- Self XSS.
+- Able to retrieve user's public information.
 
 # Safe Harbour
 

@@ -13,9 +13,9 @@ This section defines key terms you'll encounter when working with the Orderbook:
 
 - **Maker:** The party who creates the order. Also known as the initiator.
 
-- **Filler:** The party who fulfills a maker's order. Also known as the follower.
+- **Taker:** The party who fulfills a maker's order. Also known as the follower.
 
-- **COBI:** A tool specifically designed for fillers to efficiently manage order fulfillment and settlement within the Orderbook system
+- **Filler:** A bot specifically designed to efficiently manage order fulfillment and settlement within the Orderbook system.
 
 - **Confirmations:** The number of blocks that need to be mined after a transaction is made. This is to ensure that the transaction is valid and secure. Orderbook uses one confirmation for Bitcoin and 6 confirmations for EVM based chains.
 
@@ -53,9 +53,7 @@ You can get all the supported chains and their contract addresses [here](../../o
 Orders are matched based on strategies implemented by the fillers. A simple strategy could be to match an order which has minimum of 0.3% fee.
 Fillers are participants who fulfill makers' orders by taking the opposite side of the trade. When a Filler finds an order that aligns with their strategy, they can accept it, and complete the transaction.
 
-COBI is the tool designed for fillers to efficiently manage order fulfillment and settlement within the Orderbook system.
-
-COBI and fillers are often used interchangeably within the context of order fulfillment and settlement because COBI acts as an extension of the Filler's capabilities within the Orderbook system.
+The Filler is a tool designed to efficiently manage order fulfillment and settlement within the Orderbook system.
 
 More on [fillers](../filler/filler.md)
 

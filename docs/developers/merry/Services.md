@@ -18,4 +18,4 @@ Merry supports following services:
 | Postgres                | localhost:5432          |
 | Redis                   | localhost:6379          |
 | Orderbook               | localhost:8080          |
-| COBI                    | no port                 |
+| Filler                  | no port                 |

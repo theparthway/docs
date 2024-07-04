@@ -6,7 +6,7 @@ id: get-started
 
 # What is Garden?
 
-Garden is the first instant Bitcoin liquidity layer in web3, a mobility/circulation module in the Bitcoin 2.0 stack. Whether you are a trader or a dApp, Garden enables blazing fast and accurately priced bitcoin liquidity for you.
+Garden is the first instant Bitcoin liquidity layer in web3, designed to provide fast and accurately priced bitcoin liquidity for traders and dApps.
 
 Garden exists at the crossroads created by the Bitcoin renaissance, which led to three parallel budding Bitcoin ecosystems or the Bitcoin 2.0 stack:
 
@@ -43,7 +43,7 @@ If you're a developer looking to integrate or build on Garden, these are good pl
 
 Provide liquidity to Garden and earn fees by facilitating swaps. Check out [Liquidity Provision](./basics/LiquidityProvision.md) to understand the role of LPs or **Fillers** (as we like to call them) in the Garden ecosystem.
 
-If you wish to run a filler, contact us on [Discord](https://discord.gg/kqMBgeAKAh) to discuss the next steps.
+If you wish to run a Filler, contact us on [Discord](https://discord.gg/kqMBgeAKAh) to discuss the next steps.
 
 ### Stake
 

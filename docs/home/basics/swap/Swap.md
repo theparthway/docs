@@ -12,7 +12,7 @@ Garden is unlike traditional 'bridges' and doesn't have a custodian network or m
 
 Integrators can support Bitcoin swaps in their application by integrating the Garden [SDK](/docs/developers/sdk/Sdk.md).
 
-## New to garden?
+## New to Garden?
 
 - [How to swap BTC to WBTC](/docs/home/basics/guides/BtcWbtc.md)
 - [How to swap WBTC to BTC](/docs/home/basics/guides/WbtcBtc.md)

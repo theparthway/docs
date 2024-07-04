@@ -130,7 +130,7 @@ console.log(ivar);
 
 # Creating Wallets
 
-- Creating an **evm** wallet
+- Creating an **EVM** wallet
 
 ```ts
 // File: src/index.ts

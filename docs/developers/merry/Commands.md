@@ -14,7 +14,7 @@ merry go
 
 Starts all services, including the Bitcoin regtest node, Ethereum localnet node, explorers for the nodes and the catalog services.
 
-- `--bare` flag: Starts only the multi-chain services (Bitcoin and Ethereum nodes with explorers) and excludes catalog services. This option is useful if you don't need the additional functionalities such as COBI and Orderbook by Catalog.
+- `--bare` flag: Starts only the multi-chain services (Bitcoin and Ethereum nodes with explorers) and excludes catalog services. This option is useful if you don't need the additional functionalities such as Filler and Orderbook by Catalog.
 
 - `--headless` flag: Starts all services except for frontend interfaces. This can be helpful for running Merry in headless environments (e.g., servers) where a graphical user interface is not required.
 
@@ -38,7 +38,7 @@ merry logs -s <service>
 merry logs -s evm
 ```
 
-Replace \<service> with the specific service (e.g., cobi, orderbook, evm) to view its logs.
+Replace \<service> with the specific service (e.g., Filler, EVM) to view its logs.
 
 ### Replacing a service with a local one
 
@@ -46,7 +46,7 @@ Replace \<service> with the specific service (e.g., cobi, orderbook, evm) to vie
 merry replace <service>
 ```
 
-This command allows you to replace a service with your local development version. Make sure you're in the directory containing the local service's Dockerfile. Supported services include cobi, orderbook, and evm.
+This command allows you to replace a service with your local development version. Make sure you're in the directory containing the local service's Dockerfile. Supported services include Filler, Orderbook, and EVM.
 
 ### Calling bitcoin rpc methods
 
@@ -59,13 +59,13 @@ merry rpc getblockchaininfo
 
 Interact with the Bitcoin regtest node directly using RPC methods.
 
-### Updating docker images
+### Updating Docker images
 
 ```bash
 merry update
 ```
 
-Keep your testing environment up-to-date by updating all docker images.
+Keep your testing environment up-to-date by updating all Docker images.
 
 ### Fund accounts
 
@@ -73,7 +73,7 @@ Keep your testing environment up-to-date by updating all docker images.
 merry faucet <address>
 ```
 
-Fund any EVM or Bitcoin address for testing purposes. Replace \<address> with the address you want to fund. It could be a Bitcoin or Ethereum address.
+Fund any EVM or Bitcoin address for testing purposes. Replace `<address/>` with the address you want to fund. It could be a Bitcoin or Ethereum address.
 
 ### List all commands
 
