@@ -4,18 +4,20 @@ title: Fee Account
 sidebar_label: Fee Account
 ---
 
-
 # Fee Account Documentation
 
 ## Overview
-The `FeeAccount` contract is designed to manage funds within a channel between a funder and a recipient. It allows for the closing of the channel, claiming of funds based on hashed time-locked contracts (HTLCs), and settling the channel. Find the source code for the `FeeAccount` contract in the [Garden Sol repository]()
+
+The `FeeAccount` contract is designed to manage funds within a channel between a funder and a recipient. It allows for the closing of the channel, claiming of funds based on hashed time-locked contracts (HTLCs), and settling the channel. Find the source code for the `FeeAccount` contract in the [Garden Sol repository](https://github.com/gardenfi/garden-sol)
 
 ## Imports
+
 - **`ECDSAUpgradeable`**: Utility library for Elliptic Curve Digital Signature Algorithm (ECDSA) operations.
 - **`SafeERC20Upgradeable`**: Library for safely interacting with ERC-20 tokens.
 - **`EIP712Upgradeable`**: Library for EIP-712 typed structured data hashing and signing.
 
 ## State Variables
+
 - **`token`** (`IERC20Upgradeable`): The ERC-20 token used for payments within the channel.
 - **`funder`** (`address`): Address of the funder aka underwriter.
 - **`recipient`** (`address`): Address of the recipient aka user.
@@ -27,12 +29,14 @@ The `FeeAccount` contract is designed to manage funds within a channel between a
 - **`secrets`** (`mapping(bytes32 => bytes)`): Mapping to store secrets corresponding to HTLCs.
 
 ## Constants
+
 - **`CLOSE_TYPEHASH`**: Typehash for the `close` function.
 - **`CLAIM_HTLC_TYPEHASH`**: Typehash for the `claim` function.
 - **`HTLC_TYPEHASH`**: Typehash for the HTLC struct.
-- **`TWO_DAYS`**: Constant for two days in block numbers (2 * 7200).
+- **`TWO_DAYS`**: Constant for two days in block numbers (2 \* 7200).
 
 ## Structs
+
 - **`HTLC`**
   - **`secretHash`** (`bytes32`): Hash of the secret.
   - **`expiry`** (`uint256`): Expiry block number.
@@ -40,9 +44,11 @@ The `FeeAccount` contract is designed to manage funds within a channel between a
   - **`receiveAmount`** (`uint256`): Amount to be received.
 
 ## Constructor
+
 - **`constructor()`**: Disables initializers to prevent the template contract from being initialized.
 
 ## Initializers
+
 - **`__FeeAccount_init`**
   - **Parameters**: `IERC20Upgradeable token_`, `address funder_`, `address recipient_`, `string memory feeAccountName`, `string memory feeAccountVersion`
   - Initializes the `FeeAccount` contract.
@@ -51,6 +57,7 @@ The `FeeAccount` contract is designed to manage funds within a channel between a
   - Internal initialization function.
 
 ## Functions
+
 - **`close`**
   - **Parameters**: `uint256 amount_`, `bytes memory funderSig`, `bytes memory recipientSig`
   - Closes the channel and transfers the specified amount to the recipient and the remaining amount to the funder.

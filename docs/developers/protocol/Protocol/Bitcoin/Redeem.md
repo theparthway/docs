@@ -39,7 +39,7 @@ const hash = await broadcast(tx.toHex());
 ```
 
 :::warning
-This code example is not directly usable and should be used as a reference only. Look into [Garden SDK](./../../developers/sdk/Sdk.md) for a complete implementation.
+This code example is not directly usable and should be used as a reference only. Look into [Garden SDK](/docs/developers/sdk/Sdk.md) for a complete implementation.
 :::
 
 3. **Redeem Funds**: The redeemer broadcasts the redeem script to the Bitcoin network, claiming the funds locked in the contract.

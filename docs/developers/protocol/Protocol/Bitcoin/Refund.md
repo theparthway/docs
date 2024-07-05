@@ -38,7 +38,7 @@ const hash = await broadcast(tx.toHex());
 ```
 
 :::warning
-This code example is not directly usable and should be used as a reference only. Look into [Garden SDK](./../../developers/sdk/Sdk.md) for a complete implementation.
+This code example is not directly usable and should be used as a reference only. Look into [Garden SDK](/docs/developers/sdk/Sdk.md) for a complete implementation.
 :::
 
 3. **Refund Funds**: The initiator broadcasts the refund script to the Bitcoin network, reclaiming the funds locked in the contract.

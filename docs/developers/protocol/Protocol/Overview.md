@@ -8,7 +8,7 @@ sidebar_position: 1
 # Overview
 
 :::info
-This section of the documentation is intended only for source code that is relevant to blockchain. If you are looking for the documentation on developing on top of our platform, please refer to the [SDK](./../sdk/Sdk.md).
+This section of the documentation is intended only for source code that is relevant to blockchain. If you are looking for the documentation on developing on top of our platform, please refer to the [SDK](/docs/developers/sdk/Sdk.md).
 :::
 
 [Garden Finance](https://garden.finance) offers a decentralized and permission-less protocol, enabling users to seamlessly bridge Bitcoin (BTC) to its Wrapped counterpart (WBTC) on Ethereum Virtual Machine (EVM) compatible chains, and vice-versa.

@@ -7,7 +7,7 @@ sidebar_label: Fee Account Factory
 # Fee Account Factory Contract Documentation
 
 ## Overview
-The `FeeAccountFactory` contract is used to deploy and manage `FeeAccount` contracts. It allows for the creation, closing, and claiming of fee channels between a funder and a recipient. Find the source code for the `FeeAccountFactory` contract in the [Garden Sol repository]()
+The `FeeAccountFactory` contract is used to deploy and manage `FeeAccount` contracts. It allows for the creation, closing, and claiming of fee channels between a funder and a recipient. Find the source code for the `FeeAccountFactory` contract in the [Garden Sol repository](https://github.com/gardenfi/garden-sol)
 
 ## Imports
 - **`ClonesUpgradeable`**: Library for deploying minimal proxy contracts (clones).
