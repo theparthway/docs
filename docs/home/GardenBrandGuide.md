@@ -13,7 +13,7 @@ This guide provides essential information on using the Garden brand, including o
 
 :::note
 
-Garden bridges Bitcoin to any chain in under 10 minutes, offering a 10x improvement over current options. It's decentralized, trustless, audited, and not an actual garden.
+Garden bridges Bitcoin to any chain instantly, offering a 10x improvement over current options. It's decentralized, trustless, audited, and not an actual Garden.
 :::
 
 ### 🚫 You may not:
