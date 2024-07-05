@@ -5,21 +5,21 @@ id: supported-chains
 # Supported Chains
 
 :::note
-SDK also supports EVM localnets and bitcoin regtest. This is possible with `merry`, a complete localnet environment setup for testing the Garden systems. If merry is not running, whenever you pass localnets to the SDK, it will throw an error saying unsupported asset.
+SDK also supports EVM localnets and bitcoin regtest. This is possible with `merry`, a complete localnet environment setup for testing the Garden systems. If Merry is not running, whenever you pass localnets to the SDK, it will throw an error saying unsupported asset.
 :::
 
 **Garden supports the following chains:**
 
--   Bitcoin
--   Ethereum
--   Arbitrum
+- Bitcoin
+- Ethereum
+- Arbitrum
 
 We use **WBTC** as the base asset for EVM-based chains.
 
 **The following swaps are supported:**
 
--   BTC to WBTC (Bitcoin -> Ethereum)
--   WBTC to WBTC (Ethereum -> Arbitrum)
+- BTC to WBTC (Bitcoin -> Ethereum)
+- WBTC to WBTC (Ethereum -> Arbitrum)
 
 :::note
 From chain and to chain are interchangeable here.
@@ -30,7 +30,7 @@ From chain and to chain are interchangeable here.
 `@gardenfi/orderbook` exports a constant called `Chains` which contains all supported chains.
 
 ```ts
-import { Chains } from "@gardenfi/orderbook";
+import { Chains } from '@gardenfi/orderbook';
 
 const bitcoin = Chains.bitcoin;
 const ethereum = Chains.ethereum;
@@ -42,7 +42,7 @@ const arbitrum = Chains.ethereum_arbitrum;
 `@gardenfi/orderbook` exports a constant called `Assets` which contains respective chains and it's supported assets.
 
 ```ts
-import { Assets } from "@gardenfi/orderbook";
+import { Assets } from '@gardenfi/orderbook';
 
 const wbtcOnEthereum = Assets.ethereum.WBTC;
 const wbtcOnArbitrum = Assets.ethereum_arbitrum.WBTC;
