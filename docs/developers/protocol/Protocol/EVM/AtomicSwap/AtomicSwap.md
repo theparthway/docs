@@ -160,7 +160,7 @@ contract HTLC is EIP712 {
 }
 ```
 
-### Deployed Address
+### Deployed Addresses
 
 The Atomic Swap smart contract is deployed at the following addresses on different networks:
 | Network | Chain ID | Address |

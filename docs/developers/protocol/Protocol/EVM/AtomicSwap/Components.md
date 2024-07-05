@@ -148,7 +148,9 @@ constructor(address token_, string memory name, string memory version) EIP712(na
 - `name`: The name of the contract.
 - `version`: The version of the contract.
 
-It sets the `token` state variable to the ERC20 token contract.
+The constructor initializes the contract.
+
+1. It sets the `token` state variable to the ERC20 token contract.
 
 ### initiate
 
@@ -170,7 +172,9 @@ function initiate(
 - `amount`: The amount of tokens to be transferred.
 - `secretHash`: The hash of the secret used in the order.
 
-It calls the internal `_initiate` function with the initiator as the sender address.
+Allows the initiator to initiate an order with the specified parameters.
+
+1. It calls the internal `_initiate` function with the initiator as `msg.sender`.
 
 ### initiateWithSignature
 
@@ -198,7 +202,10 @@ function initiateWithSignature(
 - `secretHash`: The hash of the secret used in the order.
 - `signature`: The signature of the initiator.
 
-It recovers the initiator address from the signature and calls the internal `_initiate` function.
+Allows anyone on behalf of the initiator to initiate an order.
+
+1. It recovers the initiator address from the `signature`.
+2. It calls the internal `_initiate` function with the recovered initiator address.
 
 ### redeem
 
@@ -226,7 +233,15 @@ function redeem(bytes32 orderID, bytes calldata secret) external {
 - `orderID`: The ID of the order.
 - `secret`: The secret used to redeem the order.
 
-It checks that the order is initiated and not fulfilled. Then, it verifies the secret and transfers the tokens to the redeemer.
+Allows the redeemer to redeem an order with the specified secret.
+
+1. Loads the order from the `orders` mapping.
+2. Checks that the order is initiated and not fulfilled.
+3. Calculates the `secretHash` from the `secret`.
+4. Checks that the `orderID` matches the hash of the `secretHash` and the initiator address.
+5. Marks the order as fulfilled.
+6. Emits the `Redeemed` event.
+7. Transfers the tokens to the redeemer.
 
 ### refund
 
@@ -250,7 +265,14 @@ function refund(bytes32 orderID) external {
 
 - `orderID`: The ID of the order.
 
-It checks that the order is initiated, not fulfilled, and has expired. Then, it refunds the tokens to the initiator.
+Allows the initiator to refund an order after the timelock duration has expired.
+
+1. Loads the order from the `orders` mapping.
+2. Checks that the order is initiated and not fulfilled.
+3. Checks that the timelock duration has expired.
+4. Marks the order as fulfilled.
+5. Emits the `Refunded` event.
+6. Transfers the tokens to the initiator.
 
 ### instantRefund
 
@@ -275,7 +297,14 @@ function instantRefund(bytes32 orderID, bytes calldata signature) external {
 - `orderID`: The ID of the order.
 - `signature`: The signature of the redeemer.
 
-It recovers the redeemer address from the signature and refunds the tokens to the initiator instantly.
+Allows the redeemer to refund an order instantly with a signature.
+
+1. Recovers the redeemer address from the `signature`.
+2. Loads the order from the `orders` mapping.
+3. Checks that the recovered redeemer address matches the order redeemer address.
+4. Marks the order as fulfilled.
+5. Emits the `Refunded` event.
+6. Transfers the tokens to the initiator.
 
 ### \_initiate
 
@@ -318,4 +347,12 @@ function _initiate(
 - `amount_`: The amount of tokens to be transferred.
 - `secretHash_`: The hash of the secret used in the order.
 
-It checks that the initiator and redeemer addresses are different, and there is no duplicate order. Then, it creates a new order and transfers the tokens from the initiator to the contract.
+Allows the `initiate` and `initiateWithSignature` functions to initiate an order.
+
+1. Checks that the initiator and redeemer addresses are different.
+2. Calculates the `orderID` from the `secretHash` and the initiator address.
+3. Checks that the order does not already exist.
+4. Creates a new `Order` struct with the specified parameters.
+5. Adds the order to the `orders` mapping.
+6. Emits the `Initiated` event.
+7. Transfers the tokens from the initiator to the contract.
