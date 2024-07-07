@@ -29,14 +29,14 @@ curl https://get.merry.dev | bash
 2. Start Merry
 
 <Tabs>
-<TabItem value="with-explorer" label="with explorer">
+<TabItem value="with-explorer" label="with explorer" default>
 
 ```bash
 merry go
 ```
 </TabItem>
 
-<TabItem value="without-explorer" label="without explorer" default>
+<TabItem value="without-explorer" label="without explorer">
 
 ```bash
 merry go --headless
@@ -61,6 +61,12 @@ The following are the dependencies needed to build the dApp.
 ```bash
 # Installs Garden SDK
 bun add @catalogfi/wallets @gardenfi/orderbook @gardenfi/core ethers@6.8.0
+
+# Install Zustand
+bun add zustand
+
+# Install Fontawsome
+bun add @fortawesome/free-solid-svg-icons @fortawesome/react-fontawesome
 ```
 
 ## Installing dev dependencies
@@ -161,6 +167,7 @@ const useGardenSetup = () => {
       });
 
       const wallets = {
+// highlight-next-line
         [Chains.bitcoin_regtest]: new BitcoinOTA(bitcoinProvider, signer),
         [Chains.ethereum_localnet]: new EVMWallet(signer),
       };
@@ -173,7 +180,9 @@ const useGardenSetup = () => {
 };
 ```
 
-`useGardenSetup` initializes the Garden instance and updates it in the state whenever the EVM provider (from MetaMask or another Web3 provider) changes. This hook should be called once at the root level of your application. It ensures that the Garden instance, along with the required Bitcoin and Ethereum wallets, is properly configured and accessible throughout your dApp.
+- `useGardenSetup` initializes the Garden instance and updates it in the state whenever the EVM provider (from MetaMask or another Web3 provider) changes. This hook should be called once at the root level of your application. It ensures that the Garden instance, along with the required Bitcoin and Ethereum wallets, is properly configured and accessible throughout your dApp.
+
+- The `BitcoinOTA` instance is instantiated using the `bitcoinProvider` and the signer obtained from the `evmProvider`. By utilizing the `signer` provided by the `evmProvider`, the `BitcoinOTA` address remains consistent with the corresponding EVM address.
 
 For creation of wallets you can refer to [Creating Wallets](../developers/sdk/sdk-guides/CreatingWallets.md).
 
@@ -213,6 +222,79 @@ export default App;
 :::note
 We haven't employed Tailwind CSS or any other CSS library, and discussing CSS specifics for the app is outside the scope of this guide. However, you can find all the CSS code on [demo-app/css](https://github.com/gardenfi/demo-app/blob/main/src/App.css).
 :::
+
+## Balances Component
+
+```tsx title="/src/Balances.tsx"
+const Balances: React.FC = () => {
+  const { bitcoin } = useGarden();
+  const { evmProvider } = useMetaMaskStore();
+  const [bitcoinBalance, setBitcoinBalance] = useState("0");
+  const [wbtcBalance, setWBTCBalance] = useState("0");
+  const [isMMPopupOpen, setIsMMPopupOpen] = useState(false);
+  const [isSigned, setIsSigned] = useState(false);
+
+  const fetchBalance = useCallback(async () => {
+  /*
+  `fetchBalance` logic discussed later 
+  */
+  }, [bitcoin, evmProvider, isMMPopupOpen]);
+
+//highlight-start
+  useEffect(() => {
+    fetchBalance();
+  }, [fetchBalance]);
+//highlight-end
+
+  return (
+    <div className="balances">
+      <p>Bitcoin: {bitcoinBalance}</p>
+      <p>WBTC: {wbtcBalance}</p>
+    </div>
+  );
+};
+```
+
+The `Balances` component fetches and displays the user's Bitcoin and Wrapped Bitcoin (WBTC) balances using `useGarden` and `useMetaMaskStore` hooks. It manages state for the balances, MetaMask popup visibility, and user sign-in status. 
+
+```tsx
+const fetchBalance = useCallback(async () => {
+  if (!bitcoin || !evmProvider) return;
+// highlight-next-line
+  if (isMMPopupOpen && !isSigned) return;
+  let balance = 0;
+
+// MetaMask popup logic
+// highlight-start
+  try {
+    setIsMMPopupOpen(() => {
+      if (isSigned) return false;
+      return true;
+    });
+    balance = await bitcoin.getBalance();
+    setIsSigned(true);
+  } catch (err) {
+    setIsSigned(false);
+  }
+  setIsMMPopupOpen(false);
+// highlight-end
+
+  setBitcoinBalance(Number(formatUnits(balance, 8)).toFixed(6));
+
+  const erc20 = new Contract(
+    "0x5FbDB2315678afecb367f032d93F642f64180aa3",
+    ERC20ABI,
+    evmProvider
+  );
+  const signer = await evmProvider.getSigner();
+  const address = await signer.getAddress();
+  const wbtcBalance = await erc20.balanceOf(address);
+  setWBTCBalance(Number(formatUnits(+wbtcBalance.toString(), 8)).toFixed(6));
+}, [bitcoin, evmProvider, isMMPopupOpen]);
+```
+
+- As previously discussed in the [useGardern Hook](/cookbook/demo-app#usegarden-hook), the `BitcoinOTA` instance is instantiated using the `signer` provided by the `evmProvider`. Consequently, the popup prompts us to authorize the signer.
+- The highlighted logic manages two distinct states: one controls the MetaMask popup (`setIsMMPopupOpen`), while the other tracks whether the signer has been authorized (`isSigned`). If the transaction hasn't been signed and the popup is closed, it opens automatically (initiated by `bitcoin.getBalance`, which requires the signer). Once the transaction is signed, the popup remains closed for subsequent balance retrievals.
 
 ## SwapComponent
 
