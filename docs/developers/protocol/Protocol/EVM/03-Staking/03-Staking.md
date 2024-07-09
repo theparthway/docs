@@ -311,9 +311,7 @@ abstract contract BaseStaker is AccessControl {
 
 ### Deployed Addresses
 
-The Staking smart contracts are deployed at the following address on different networks:
+The Staking smart contracts are deployed at the following address on Arbitrum:
 | Network | Chain ID | Address |
 | --- | --- | --- |
-| Arbitrum | 42161 | [TODO](https://etherscan.io/address/0x33d0568941c0c64ff7e0fb4fba0b11bd37deed9f) |
-| Ethereum | 1 | [TODO](https://ropsten.etherscan.io/address/0x6f6d7d5f565b8d4c4a5f3bfa9b3c3f5b6e9b0b5f) |
-| Sepolia | 11155111 | [TODO](https://rinkeby.etherscan.io/address/0x6f6d7d5f565b8d4c4a5f3bfa9b3c3f5b6e9b0b5f) |
+| Arbitrum | 42161 | [`0x86f65121804d2cdbef79f9f072d4e0c2eebabc08`](https://arbiscan.io/token/0x86f65121804d2cdbef79f9f072d4e0c2eebabc08) |

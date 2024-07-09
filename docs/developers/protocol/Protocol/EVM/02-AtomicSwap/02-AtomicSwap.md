@@ -6,11 +6,7 @@ sidebar_label: Atomic Swap
 
 # Atomic Swap
 
-Hashed Time-Locked Contracts (HTLCs) are smart contracts that facilitate secure asset transfers between parties on different blockchains. They work by creating time-bound conditions for both parties to fulfill before the transaction is completed.
-
-In a typical scenario, the sender deposits their asset into a secure vault on their blockchain. The receiver, upon verifying the deposit, does the same on their blockchain. Once both deposits are confirmed, the sender unlocks the receiver's vault, and the receiver can then access their asset.
-
-To prevent issues like incorrect deposits or one party backing out, HTLCs incorporate time-locks. The receiver has a limited time to claim their asset, while the sender can reclaim theirs if the receiver fails to act within the specified time frame. This ensures a fair and secure exchange, even without direct trust between the parties involved.
+Hashed Time-Locked Contracts (HTLCs) are smart contracts that facilitate secure asset transfers between parties on different blockchains. They work by creating time-bound conditions for both parties.
 
 ## Smart Contract
 
@@ -165,6 +161,5 @@ contract HTLC is EIP712 {
 The Atomic Swap smart contract is deployed at the following addresses on different networks:
 | Network | Chain ID | Address |
 | --- | --- | --- |
-| Arbitrum | 42161 | [TODO](https://etherscan.io/address/0x33d0568941c0c64ff7e0fb4fba0b11bd37deed9f) |
-| Ethereum | 1 | [TODO](https://ropsten.etherscan.io/address/0x6f6d7d5f565b8d4c4a5f3bfa9b3c3f5b6e9b0b5f) |
-| Sepolia | 11155111 | [TODO](https://rinkeby.etherscan.io/address/0x6f6d7d5f565b8d4c4a5f3bfa9b3c3f5b6e9b0b5f) |
+| Arbitrum | 42161 | [`0x203dac25763ae783ad532a035fff33d8df9437ee`](https://arbiscan.io/address/0x203dac25763ae783ad532a035fff33d8df9437ee) |
+| Ethereum | 1 | [`0xa5e38d098b54c00f10e32e51647086232a9a0afd`](https://etherscan.io/address/0xa5e38d098b54c00f10e32e51647086232a9a0afd) |

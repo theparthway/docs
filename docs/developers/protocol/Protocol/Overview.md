@@ -23,7 +23,7 @@ This section of the documentation is intended only for source code that is relev
 items={[
 {
 type: "link",
-href: "./Bitcoin/Bitcoin",
+href: "./Bitcoin",
 label: "Atomic Swap",
 docId: "developers/protocol/Protocol/Bitcoin/bitcoin",
 },
@@ -42,19 +42,19 @@ docId: "developers/protocol/Protocol/EVM/seed",
 },
 {
 type: "link",
-href: "./EVM/AtomicSwap/AtomicSwap",
+href: "./EVM/AtomicSwap",
 label: "Atomic Swap",
 docId: "developers/protocol/Protocol/EVM/AtomicSwap/atomic-swap",
 },
 {
 type: "link",
-href: "./EVM/Staking/Staking",
+href: "./EVM/Staking",
 label: "Staking",
 docId: "developers/protocol/Protocol/EVM/Staking/staking",
 },
 {
 type: "link",
-href: "./EVM/PaymentChannel/PaymentChannel/PaymentChannel",
+href: "./EVM/PaymentChannel",
 label: "Payment Channel",
 docId: "developers/protocol/Protocol/EVM/PaymentChannel/payment-channel",
 },

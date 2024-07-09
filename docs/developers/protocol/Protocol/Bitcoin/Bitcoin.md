@@ -4,15 +4,9 @@ title: Bitcoin
 sidebar_label: Bitcoin
 ---
 
-# Bitcoin
-
-Garden Finance is a decentralized finance (DeFi) platform that specializes in cross-chain swaps, primarily focusing on the exchange between Bitcoin (BTC) and its Ethereum-based equivalent, Wrapped Bitcoin (WBTC). To achieve this, Garden Finance leverages the innovative concept of Atomic Swaps. This mechanism allows users to exchange assets across different blockchains without the need for a trusted intermediary, ensuring that the exchange is completed or refunded in full.
-
-The following sections provide a detailed overview of the Atomic Swap script used by Garden Finance.
+Garden Finance uses given Bitcoin script for Atomic Swap, it is a Hash Time-Locked Contract (HTLC), a type of smart contract that allows for conditional execution of a Bitcoin transaction. This script is designed for atomic swaps, cross-chain exchanges, or any scenario where funds should be released only if specific conditions are met within a certain time-frame.
 
 ## Atomic Swap Script
-
-Garden Finance uses given Bitcoin script for Atomic Swap, it is a Hash Time-Locked Contract (HTLC), a type of smart contract that allows for conditional execution of a Bitcoin transaction. This script is designed for atomic swaps, cross-chain exchanges, or any scenario where funds should be released only if specific conditions are met within a certain time-frame.
 
 ```typescript
 OP_IF
