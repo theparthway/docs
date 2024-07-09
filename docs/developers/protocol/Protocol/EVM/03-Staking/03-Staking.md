@@ -6,7 +6,7 @@ sidebar_label: Staking
 
 # Staking
 
-Stakers play a crucial role in maintaining the system's integrity by overseeing Order Fillers and ensuring their ethical and efficient operation. To become a staker, you must hold at least 2,100 SEED tokens on the Arbitrum chain. The staking APY is dynamic and depends on the number of Garden users staking and the duration of their stakes. The staking APY can be viewed on Garden's staking page. A staking multiplier incentivizes long-term commitment, boosting voting/earning capability based on the staking duration. For instance, staking for 6 months gives 1 vote, while staking for 4 years means 4 votes and 4x the APY compared to a 6-month stake.
+Stakers play a crucial role in maintaining the system's integrity by overseeing Order Fillers and ensuring their ethical and efficient operation. To become a staker, you must hold at least 2,100 SEED tokens on the Arbitrum chain. The staking APY is dynamic and depends on the number of Garden users staking and the duration of their stakes. The staking APY can be viewed on Garden's staking page. A staking multiplier incentivize long-term commitment, boosting voting/earning capability based on the staking duration. For instance, staking for 6 months gives 1 vote, while staking for 4 years means 4 votes and 4x the APY compared to a 6-month stake.
 
 ## Smart Contracts
 
