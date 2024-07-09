@@ -5,6 +5,8 @@ sidebar_label: Overview
 sidebar_position: 1
 ---
 
+import DocCardList from '@theme/DocCardList';
+
 # Overview
 
 :::info
@@ -15,24 +17,46 @@ This section of the documentation is intended only for source code that is relev
 
 ## Key Features
 
-### Atomic Swaps
+### Bitcoin
 
-The protocol facilitates an atomic swap, ensuring a secure and trustless exchange between BTC and WBTC. Atomic swaps eliminate the need for intermediaries, reducing counter-party risk and ensuring a seamless exchange process. We use Hashed TimeLock Contracts (HTLCs) to enable atomic swaps.
+<DocCardList
+items={[
+{
+type: "link",
+href: "./Bitcoin/Bitcoin",
+label: "Atomic Swap",
+docId: "developers/protocol/Protocol/Bitcoin/bitcoin",
+},
+]}
+/>
 
-### SEED Token
+### EVM-based Chains
 
-At the heart of the protocol lies the SEED token, native token of Garden Finance. It serves multiple crucial functions:
-
-**Transaction Fees**: SEED tokens are used to pay fees for the atomic swap process.
-
-**Staking**: SEED holders can participate in the protocol's governance by staking their tokens. Stakers not only influence the protocol's future but also earn rewards from a share of the protocol's generated fees.
-
-### Staking and Governance
-
-SEED holders can stake their tokens to participate in the protocol's governance. Stakers can vote for COBi, it helps to fulfill user's Atomic Swap requests. On voting, certain part of the COBi earned fees will be distributed to the stakers as rewards.
-
-### Payment Channels
-
-:::danger
-`@yash1io` will provide the content for Payment Channels.
-:::
+<DocCardList
+items={[
+{
+type: "link",
+href: "./EVM/SEED",
+label: "SEED",
+docId: "developers/protocol/Protocol/EVM/seed",
+},
+{
+type: "link",
+href: "./EVM/AtomicSwap/AtomicSwap",
+label: "Atomic Swap",
+docId: "developers/protocol/Protocol/EVM/AtomicSwap/atomic-swap",
+},
+{
+type: "link",
+href: "./EVM/Staking/Staking",
+label: "Staking",
+docId: "developers/protocol/Protocol/EVM/Staking/staking",
+},
+{
+type: "link",
+href: "./EVM/PaymentChannel/PaymentChannel/PaymentChannel",
+label: "Payment Channel",
+docId: "developers/protocol/Protocol/EVM/PaymentChannel/payment-channel",
+},
+]}
+/>
