@@ -7,18 +7,27 @@ import TabItem from '@theme/TabItem';
 # Demo App
 
 :::note
-This guide is meant to be followed along side the [gardenfi/demo-app](https://github.com/gardenfi/demo-app) and is not meant for production use; it is merely an example to help you get started with the SDK.
+This guide accompanies the [gardenfi/demo-app](https://github.com/gardenfi/demo-app) and is intended solely for learning purposes, and not for production use.
 :::
+
 
 ## Introduction
 
-This guide explains how to use the [Garden SDK](../developers/sdk/Sdk.md) to develop a basic dApp that facilitates swapping WBTC to BTC. The user interface would resemble the image below:
+This guide demonstrates how to use the [Garden SDK](../developers/sdk/Sdk.md) to develop a basic dApp for swapping WBTC to BTC.
+
+The user interface looks like this:
 
 ![Final dApp](./images/final_dapp.png)
 
-## Environment Setup
+## Environment setup
 
-To improve the developer experience, we will be using [Merry](../developers/merry/Merry.md) to set up the multichain environment necessary for performing a swap. This setup includes all essential components such as the [Orderbook](../developers/fundamentals/orderbook/Orderbook.md), [Filler](../developers/fundamentals/filler/filler.md), [Faucet](https://www.alchemy.com/faucets#faucets-switchback-right-light), and nodes for Bitcoin, Ethereum, and Arbitrum.
+To improve the developer experience, we will use [Merry](../developers/merry/Merry.md) to set up the multichain environment necessary for performing a swap. 
+
+This setup includes all essential components, such as
+- [Orderbook](../developers/fundamentals/orderbook/Orderbook.md)
+- [Filler](../developers/fundamentals/filler/filler.md)
+- [Faucet](https://www.alchemy.com/faucets#faucets-switchback-right-light)
+- Bitcoin, Ethereum, and Arbitrum Nodes.
 
 1. Install Merry
 
@@ -51,18 +60,18 @@ merry go --headless
  merry faucet --to <EVM Address>
 ```
 
-## Project Setup
+## Project setup
 
-Let's create a react app using the following command. If you don't have bun installed, please refer to [bun](https://bun.sh/).
+Let's create a react app using the following command. If you don't have Bun installed, please refer to [bun](https://bun.sh/).
 
 ```bash
 # Creates a react-app using vite
 bun create vite demo-app --template react-ts
 ```
 
-## Installing Dependencies
+## Installing dependencies
 
-The following are the dependencies needed to build the dApp.
+The following dependencies are needed to build the dApp.
 
 ```bash
 # Installs Garden SDK
@@ -72,7 +81,7 @@ bun add @catalogfi/wallets @gardenfi/orderbook @gardenfi/core ethers@6.8.0
 bun add zustand
 ```
 
-## Installing dev dependencies
+## Installing development dependencies
 
 We need to include the `vite-plugin-wasm`, `vite-plugin-node-polyfills`, and `vite-plugin-top-level-await` dependencies to enable SDK functionality on the frontend:
 
@@ -105,10 +114,10 @@ Now we are all set to build the dApp.
 
 ## The dApp
 
-The documentation often covers the creation of a `Garden` instance and its usage for swaps and other operations. To streamline this process, we will create a custom hook that handles the creation of this Garden instance.
+The [SDK Guide](../developers/sdk/sdk-guides/SdkGuides.md) covers the creation of a [`Garden` instance](../developers/sdk/sdk-guides/SwappingBtcWbtc.md#swapping) and its usage for swaps and other operations. We'll do the same here by creating a custom hook to handle the Garden instance creation.
 
 :::note
-For state management in the dApp, we are using [Zustand](https://zustand-demo.pmnd.rs/), which minimizes boilerplate and offers a user-friendly approach of managing state. If you're new to Zustand, please review to the [Zustand documentation](https://docs.pmnd.rs/zustand/getting-started/introduction).
+For state management, we are using [Zustand](https://zustand-demo.pmnd.rs/), which minimizes boilerplate and offers a user-friendly approach to managing state. If you're new to Zustand, please review the [Zustand documentation](https://docs.pmnd.rs/zustand/getting-started/introduction).
 :::
 
 ### useGarden hook
@@ -147,7 +156,7 @@ Next, let's create a hook that sets the Garden instance.
 ```tsx title="/src/store.tsx"
 // `useGardenSetup` has to be called at the root level only once
 const useGardenSetup = () => {
-// this could be useWeb3React too (type of browserProvider from ethers)
+// this could also be useWeb3React (a type of browserProvider from ethers)
   const { evmProvider } = useMetaMaskStore();
   const { setGarden } = gardenStore();
 
@@ -285,10 +294,10 @@ export default App;
 ![Layout](./images/layout.png)
 
 :::note
-We haven't employed Tailwind CSS or any other CSS library, and discussing CSS specifics for the app is outside the scope of this guide. However, you can find all the CSS code on [demo-app/css](https://github.com/gardenfi/demo-app/blob/main/src/App.css).
+We haven't used Tailwind CSS or any other CSS library, and discussing CSS specifics for the app is outside the scope of this guide. However, you can find all the CSS code on [demo-app/css](https://github.com/gardenfi/demo-app/blob/main/src/App.css).
 :::
 
-## Balances Component
+## Balances component
 
 ```tsx title="/src/Balances.tsx"
 const Balances: React.FC = () => {
@@ -330,7 +339,7 @@ const Balances: React.FC = () => {
 };
 ```
 
-The `Balances` component fetches and displays the user's Bitcoin and Wrapped Bitcoin (WBTC) balances using `useGarden` and `useMetaMaskStore` hooks. It manages state for the balances, MetaMask popup visibility, and user sign-in status. 
+The `Balances` component fetches and displays the user's Bitcoin (BTC) and Wrapped Bitcoin (WBTC) balances using `useGarden` and `useMetaMaskStore` hooks. It manages state for the balances, MetaMask popup visibility, and user sign-in status. 
 
 ```tsx
 const fetchBalance = useCallback(async () => {
@@ -371,7 +380,7 @@ const fetchBalance = useCallback(async () => {
 
 - As previously discussed in the [useGardern Hook](/cookbook/demo-app#usegarden-hook) section, the `BitcoinOTA` instance is instantiated using the `signer` provided by the `evmProvider` (which is MetaMask in our case). Consequently, the popup prompts us to authorize the signer. 
 - The exact moment that tiggers the MetaMask popup is the `await bitcoin.getBalance()` line, highlighted above.
-- The remaining logic manages two distinct states: one controls the MetaMask popup (`setIsMMPopupOpen`), while the other tracks whether the signer has been authorized (`isSigned`). If the request hasn't been signed and the popup is closed, it opens automatically (initiated by `bitcoin.getBalance`, which requires the signer). Once the transaction is signed, the popup remains closed for subsequent balance retrievals.
+- The remaining logic manages two distinct states: one controls the MetaMask popup (`setIsMMPopupOpen`), while the other tracks whether the signer has been authorized (`isSigned`). If the request hasn't been signed and the popup is closed, it will open automatically (initiated by `bitcoin.getBalance`, which requires the signer). Once the transaction is signed, the popup remains closed for subsequent balance retrievals.
 
 ![sing_request_popup](./images/metamask_sign_popup.png)
 
@@ -519,7 +528,7 @@ const handleSwap = async () => {
 
 ![Swap](./images/swap.png)
 
-## Transactions Component
+## Transactions component
 
 ```tsx title="/src/TransactionsComponent.tsx"
 import { Actions, Order as OrderbookOrder } from '@gardenfi/orderbook';
@@ -607,7 +616,7 @@ merry faucet --to <EVM Address>
 ```
 This will provide the necessary funds to cover gas fees. Please wait 10 seconds for the EVM balance to update on the frontend.
 
-### Unable to Initiate Swap
+### Unable to initiate swap
 
 This can happen for two reasons: either the sending cap request hasn't been approved (you can verify this by checking the Activity section of MetaMask, where it will appear as the first request), or there is a mismatch between the localnet Merry and MetaMask due to issues such as Merry's chain data being lost or deleted.
 
