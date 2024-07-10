@@ -42,8 +42,8 @@ id: wbtc-wbtc
 
 
 
-11. Click on "Claim BTC" on the desitnation chain. 
+11. Click on "Claim BTC" on the desitnation chain and confirm in the wallet modal. 
 ![step 11](../../images/guide-wbtc-wbtc-11.png)
 
 
-Congratulations! Your swap is done; you can check your order details by clicking on “Order ID”
+Congratulations! Your swap is done; you can check your order details by clicking on “Order ID”.
