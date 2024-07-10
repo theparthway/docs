@@ -6,7 +6,7 @@ id: get-started
 
 # What is Garden?
 
-Garden is the first instant Bitcoin liquidity layer in web3, designed to provide fast and accurately priced bitcoin liquidity for traders and dApps.
+Garden is the first instant Bitcoin liquidity layer in web3, designed to provide fast and accurately priced Bitcoin liquidity for traders and dApps.
 
 Garden exists at the crossroads created by the Bitcoin renaissance, which led to three parallel budding Bitcoin ecosystems or the Bitcoin 2.0 stack:
 
