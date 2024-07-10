@@ -3,7 +3,13 @@ id: supported-chains
 ---
 
 # Supported Chains
-This section outlines the various blockchain networks where Garden's smart contracts are deployed, and BTC swaps are enabled. You will find detailed information about each supported chain, ensuring you can seamlessly engage in BTC transactions across different blockchain environments. 
+This section outlines the various blockchain networks where Bitcoin or its wrapped versions are enabled for swaps. You will find detailed information about each supported chain, ensuring you can seamlessly engage in BTC transactions across different blockchain environments. 
+
+<details>
+<summary>Bitcoin</summary>
+
+BTC on the Bitcoin chain to WBTC on the Ethereum & Arbitrum chain and vice versa.
+</details>
 
 <details>
 <summary>Ethereum</summary>

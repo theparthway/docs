@@ -42,7 +42,8 @@ id: wbtc-wbtc
 
 
 
-11. Click on "Claim BTC" on the desitnation chain and confirm in the wallet modal. 
+
+11. Click on "Claim WBTC" on the desitnation chain and confirm in the wallet modal. 
 ![step 11](../../images/guide-wbtc-wbtc-11.png)
 
 
