@@ -21,7 +21,7 @@ Before raising a proposal at Garden, it is essential to initiate a Sentiment Che
 
 ### 2. Raise a Proposal
 
-After your proposal receives over 20 thumbs up on Discord, indicating successful passage through the Sentiment Check, you can proceed to the formal proposal stage. Proposals should be submitted for community voting on Snapshot at https://snapshot.org/#/gardenfinance.eth.
+After your proposal receives over 20 thumbs up on Discord, indicating successful passage through the Sentiment Check, you can proceed to the formal proposal stage. Proposals should be submitted for community voting on [Snapshot](https://snapshot.org/#/gardenfinance.eth).
 
 In your proposal, clearly state the problem you aim to address and describe the proposed solution in detail. Outline actionable steps required to implement this solution, providing links to any relevant code repositories or resources. Additionally, discuss the expected outcomes, detailing both the potential benefits and any risks. This comprehensive approach ensures the community can make well-informed decisions on each proposal.
 
