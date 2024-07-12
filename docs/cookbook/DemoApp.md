@@ -1,10 +1,10 @@
 ---
-id: demo-app
+id: demo-dapp
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Demo App
+# Demo dApp
 
 :::note
 This guide accompanies the [gardenfi/demo-app](https://github.com/gardenfi/demo-app) and is intended solely for learning purposes, and not for production use.

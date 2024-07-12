@@ -139,7 +139,7 @@ const sidebars: SidebarsConfig = {
     },
   ],
 
-  cookbook: ['cookbook/cookbook', 'cookbook/demo-cli', 'cookbook/demo-app'],
+  cookbook: ['cookbook/cookbook', 'cookbook/demo-cli', 'cookbook/demo-dapp'],
 
   community: ['community/community', 'community/garden-ambassador-program'],
 
