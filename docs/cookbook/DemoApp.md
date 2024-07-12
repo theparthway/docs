@@ -62,7 +62,7 @@ merry go --headless
 
 ## Project setup
 
-Let's create a react app using the following command. If you don't have Bun installed, please refer to [bun](https://bun.sh/).
+Let's create a React App using the following command. If you don't have Bun installed, please refer to [Bun](https://bun.sh/).
 
 ```bash
 # Creates a react-app using vite
@@ -114,7 +114,7 @@ Now we are all set to build the dApp.
 
 ## The dApp
 
-The [SDK Guide](../developers/sdk/sdk-guides/SdkGuides.md) covers the creation of a [`Garden` instance](../developers/sdk/sdk-guides/SwappingBtcWbtc.md#swapping) and its usage for swaps and other operations. We'll do the same here by creating a custom hook to handle the Garden instance creation.
+The [SDK Guides](../developers/sdk/sdk-guides/SdkGuides.md) cover the creation of a [`Garden`](../developers/sdk/sdk-guides/SwappingBtcWbtc.md#swapping) instance and its usage for swaps and other operations. We'll do the same here by creating a custom hook to handle the Garden instance creation.
 
 :::note
 For state management, we are using [Zustand](https://zustand-demo.pmnd.rs/), which minimizes boilerplate and offers a user-friendly approach to managing state. If you're new to Zustand, please review the [Zustand documentation](https://docs.pmnd.rs/zustand/getting-started/introduction).
@@ -149,7 +149,7 @@ const useGarden = () => ({
 });
 ```
 
-`useGarden` returns both a Garden instance and a BitcoinOTA instance. The Garden instance allows you to create swaps or subscribe to orders, while the BitcoinOTA instance enables interactions with the Bitcoin wallet.
+`useGarden` returns both a Garden instance and a BitcoinOTA (Bitcoin One Time Account) instance. The Garden instance allows you to create swaps or subscribe to orders, while the BitcoinOTA instance enables interactions with the Bitcoin wallet.
 
 Next, let's create a hook that sets the Garden instance.
 
@@ -195,7 +195,7 @@ const useGardenSetup = () => {
 };
 ```
 
-- `useGardenSetup` initializes the Garden instance and updates it in the state whenever the EVM provider (from MetaMask or another Web3 provider) changes. This hook should be called once at the root level of your application (eg. `src/App.tsx`). It ensures that the Garden instance, along with the required Bitcoin and Ethereum wallets, is properly configured and accessible throughout the dApp.
+- `useGardenSetup` initializes the Garden instance and updates it in the state whenever the EVM provider (MetaMask or another Web3 provider) changes. This hook should be called once at the root level of your application (eg. `src/App.tsx`). It ensures that the Garden instance, along with the required Bitcoin and Ethereum wallets, is properly configured and accessible throughout the dApp.
 
 - The `BitcoinOTA` instance is instantiated using the `bitcoinProvider` and the `signer` obtained from the `evmProvider`. By utilizing the `signer` provided by the `evmProvider`, the `BitcoinOTA` address remains consistent with the corresponding EVM address.
 
@@ -255,7 +255,7 @@ const useMetaMaskStore = create<EvmWalletState & EvmWalletAction>((set) => ({
 }));
 ```
 
-- The `networkConfig` object specifies the details of the Ethereum network to connect to (in our case, the localnet), including chain ID, chain name, RPC URLs, and native currency details.
+- The `networkConfig` object specifies the details of the Ethereum network to connect to (in this case, the localnet), including chain ID, chain name, RPC URLs, and native currency details.
 - The highlighted logic checks if the connected network's chain ID is not 31337 (the local Ethereum network). If it isn't, the function requests MetaMask to add the specified Ethereum chain from `networkConfig`.
 
 ![network_change_popup](./images/network_change_popup.png)
@@ -286,7 +286,7 @@ function App() {
 export default App;
 ```
 
-- The `Balances` component displays the BTC & WBTC balances of the user's wallets. 
+- The `Balances` component displays the BTC & WBTC balances of the users wallets. 
 - The `SwapComponent` handles the logic for the swap screen, allowing users to input amounts and initiate the swap. 
 - The `TransactionsComponent` is responsible for fetching the latest transactions of the currently active EVM account.
 - Additionally, `App` calls the `useGardenSetup` hook, which sets up the Garden instance and the BitcoinOTA.
@@ -339,7 +339,7 @@ const Balances: React.FC = () => {
 };
 ```
 
-The `Balances` component fetches and displays the user's Bitcoin (BTC) and Wrapped Bitcoin (WBTC) balances using `useGarden` and `useMetaMaskStore` hooks. It manages state for the balances, MetaMask popup visibility, and user sign-in status. 
+The `Balances` component fetches and displays the users Bitcoin (BTC) and Wrapped Bitcoin (WBTC) balances using `useGarden` and `useMetaMaskStore` hooks. It manages state for the balances, MetaMask popup visibility, and user sign-in status. 
 
 ```tsx
 const fetchBalance = useCallback(async () => {
@@ -618,7 +618,7 @@ This will provide the necessary funds to cover gas fees. Please wait 10 seconds 
 
 ### Unable to initiate swap
 
-This can happen for two reasons: either the sending cap request hasn't been approved (you can verify this by checking the Activity section of MetaMask, where it will appear as the first request), or there is a mismatch between the localnet Merry and MetaMask due to issues such as Merry's chain data being lost or deleted.
+This can happen for two reasons, either the sending cap request hasn't been approved (you can verify this by checking the Activity section of MetaMask, where it will appear as the first request), or there is a mismatch between the localnet Merry and MetaMask due to issues such as Merry's chain data being lost or deleted.
 
 In both scenarios, follow these steps:
 1. Clear MetaMask
