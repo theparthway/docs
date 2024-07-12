@@ -124,7 +124,7 @@ Garden charges 0.3% as the swap fees. Fee is calculated as the difference betwee
 | :---------------------- | :------------ | :----------------------------------------------------------------------------------------------------------------------- |
 | `maker`                 | `string`      | Address of the maker who created the order                                                                               |
 | `taker`                 | `string`      | Address of the taker who accepted the order                                                                              |
-| `orderpair`             | `string`      | The trading pair for the order ([here](#orderpair))                                                                      |
+| `orderpair`             | `string`      | The trading pair for the order ([here](/developers/fundamentals/orderbook/#orderpair))                                                                      |
 | `initiatoratomicswapid` | `uint`        | ID of the initiator's atomic swap                                                                                        |
 | `followeratomicswapid`  | `uint`        | ID of the follower's atomic swap                                                                                         |
 | `initiatoratomicswap`   | `*atomicswap` | Details of the initiator's HTLC                                                                                          |
