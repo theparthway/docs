@@ -7,7 +7,7 @@ import TabItem from '@theme/TabItem';
 # Demo dApp
 
 :::note
-This guide accompanies the [gardenfi/demo-app](https://github.com/gardenfi/demo-app) and is intended solely for learning purposes, and not for production use.
+This guide accompanies the [gardenfi/demo-dapp](https://github.com/gardenfi/demo-dapp) and is intended solely for learning purposes, and not for production use.
 :::
 
 
@@ -66,7 +66,7 @@ Let's create a react app using the following command. If you don't have Bun inst
 
 ```bash
 # Creates a react-app using vite
-bun create vite demo-app --template react-ts
+bun create vite demo-dapp --template react-ts
 ```
 
 ## Installing dependencies
@@ -294,7 +294,7 @@ export default App;
 ![Layout](./images/layout.png)
 
 :::note
-We haven't used Tailwind CSS or any other CSS library, and discussing CSS specifics for the app is outside the scope of this guide. However, you can find all the CSS code on [demo-app/css](https://github.com/gardenfi/demo-app/blob/main/src/App.css).
+We haven't used Tailwind CSS or any other CSS library, and discussing CSS specifics for the app is outside the scope of this guide. However, you can find all the CSS code on [demo-dapp/css](https://github.com/gardenfi/demo-dapp/blob/main/src/App.css).
 :::
 
 ## Balances component
@@ -378,7 +378,7 @@ const fetchBalance = useCallback(async () => {
 ]);
 ```
 
-- As previously discussed in the [useGardern Hook](/cookbook/demo-app#usegarden-hook) section, the `BitcoinOTA` instance is instantiated using the `signer` provided by the `evmProvider` (which is MetaMask in our case). Consequently, the popup prompts us to authorize the signer. 
+- As previously discussed in the [useGardern Hook](/cookbook/demo-dapp#usegarden-hook) section, the `BitcoinOTA` instance is instantiated using the `signer` provided by the `evmProvider` (which is MetaMask in our case). Consequently, the popup prompts us to authorize the signer. 
 - The exact moment that tiggers the MetaMask popup is the `await bitcoin.getBalance()` line, highlighted above.
 - The remaining logic manages two distinct states: one controls the MetaMask popup (`setIsMMPopupOpen`), while the other tracks whether the signer has been authorized (`isSigned`). If the request hasn't been signed and the popup is closed, it will open automatically (initiated by `bitcoin.getBalance`, which requires the signer). Once the transaction is signed, the popup remains closed for subsequent balance retrievals.
 
@@ -635,4 +635,4 @@ sudo rm -rf ~/.merry
 merry start
 ```
 
-Checkout full code for Demo-App [here](https://github.com/gardenfi/demo-app).
+Checkout full code for Demo dApp [here](https://github.com/gardenfi/demo-dapp).
