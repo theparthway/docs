@@ -34,7 +34,7 @@ id: wbtc-btc
 10. Confirm the transaction by signing it in the wallet.
     ![step 10](../../images/guide-wbtc-btc-10.png)
 
-11. Wait for order fillers to pick up the order and deposit your required BTC into an HTLC contract and its on-chain confirmation. Then, claim your BTC and click "Claim WBTC."
+11. Wait for order Fillers to pick up the order and deposit your required BTC into an HTLC contract and its on-chain confirmation. Then, claim your BTC and click "Claim WBTC."
     ![step 11](../../images/guide-wbtc-btc-11.png)
 
 12. Sign the claim BTC signature request.

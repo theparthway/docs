@@ -156,7 +156,7 @@ The `parseStatus` function in `@gardenfi/orderbook` provides you the `status` of
 - `x3x`: The order expired, so the initiator is eligible to redeem their funds. x indicates any number.
 - `xx3`: The order expired, so the follower is eligible to redeem their funds. x indicates any number.
 
-When creating orders, the follower is the backend Orderbook fillers.
+When creating orders, the follower is the backend Orderbook Fillers.
 
 ### Calculate Receive Amount
 
@@ -164,7 +164,7 @@ When creating orders, the follower is the backend Orderbook fillers.
 calculateReceiveAmt(from: Asset, to: Asset, sendAmt: number): Promise<number>
 ```
 
-Calculates the optimal amount of fee taken by the fillers in the Orderbook which is _currently 3%_.
+Calculates the optimal amount of fee taken by the Fillers in the Orderbook which is _currently 3%_.
 
 ### Parameters
 

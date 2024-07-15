@@ -66,7 +66,7 @@ The signer which `Orderbook.init` accepts is an instance of `JsonRpcSigner` from
 ```ts
 import { Orderbook } from '@gardenfi/orderbook';
 
-// we can use the following signer if you are using a web3 provider
+// we can use the following signer if you are using a Web3 provider
 // const signer = await new BrowserProvider(window.ethereum).getSigner();
 
 (async () => {
@@ -109,7 +109,7 @@ const wallets = {
 const garden = new GardenJS(orderbook, wallets);
 ```
 
-Now that we have the Garden instance, we can swap BTC for WBTC. The first step is to create the swap request. We use the `gardenJS.swap()` to create the swap. The minimum amount required is 0.0001 BTC and we'll be paying a fee of 0.3% to the fillers. The `.swap()` method however accepts the send and receive amount in their lowest denominations (in the case of BTC it's satoshis).
+Now that we have the Garden instance, we can swap BTC for WBTC. The first step is to create the swap request. We use the `gardenJS.swap()` to create the swap. The minimum amount required is 0.0001 BTC and we'll be paying a fee of 0.3% to the Fillers. The `.swap()` method however accepts the send and receive amount in their lowest denominations (in the case of BTC it's satoshis).
 
 We'll also need to specify the assets we want to swap from and to. Since we want to swap from BTC on the Bitcoin chain to WBTC and Ethereum. These assets are specified in the `Assets` object.
 

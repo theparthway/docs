@@ -30,7 +30,7 @@ We use these terms in the next sections to refer to the participants in the Orde
 - **Fee:** The amount the maker is willing to pay for order execution.
 - **Additional Parameters:** Refer to the dedicated [API](../../orderbook-api/OrderbookAPI.md#create-order) section for details on other configurable options.
 
-Once submitted, the Orderbook engine broadcasts the OrderRequest to all **fillers**. Fillers can then evaluate the offer based on their matching strategies. An order will only be matched if a Filler identifies it as a profitable opportunity.
+Once submitted, the Orderbook engine broadcasts the OrderRequest to all **Fillers**. Fillers can then evaluate the offer based on their matching strategies. An order will only be matched if a Filler identifies it as a profitable opportunity.
 
 ### Orderpair
 
@@ -50,12 +50,12 @@ You can get all the supported chains and their contract addresses [here](../../o
 
 ## Matching Orders
 
-Orders are matched based on strategies implemented by the fillers. A simple strategy could be to match an order which has minimum of 0.3% fee.
+Orders are matched based on strategies implemented by the Fillers. A simple strategy could be to match an order which has minimum of 0.3% fee.
 Fillers are participants who fulfill makers' orders by taking the opposite side of the trade. When a Filler finds an order that aligns with their strategy, they can accept it, and complete the transaction.
 
 The Filler is a tool designed to efficiently manage order fulfillment and settlement within the Orderbook system.
 
-More on [fillers](../filler/filler.md)
+More on [Fillers](../filler/filler.md)
 
 ## Settling Orders
 
@@ -72,7 +72,7 @@ The process of settling orders along with creation and matching is as follows:
 
 ## Tracking Orders
 
-Order tracking allows makers and fillers to monitor their order statuses and perform required actions based on the current status of the order.
+Order tracking allows makers and Fillers to monitor their order statuses and perform required actions based on the current status of the order.
 
 ### Order Status
 

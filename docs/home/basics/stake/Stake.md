@@ -4,7 +4,7 @@ id: stake
 
 # Stake
 
-Stakers are vital in maintaining the system's integrity by overseeing order Fillers and ensuring their ethical and efficient operation. They have the authority to reward diligent Fillers with additional orders, thus preventing any single Filler from completely dominating the system. This balanced approach creates a healthy and competitive environment where fillers are encouraged to excel while maintaining fairness and transparency.
+Stakers are vital in maintaining the system's integrity by overseeing Fillers and ensuring their ethical and efficient operation. They have the authority to reward diligent Fillers with additional orders, thus preventing any single Filler from completely dominating the system. This balanced approach creates a healthy and competitive environment where Fillers are encouraged to excel while maintaining fairness and transparency.
 
 ### Who Can Stake SEED?
 

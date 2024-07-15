@@ -4,7 +4,7 @@ id: core-concepts
 
 # Core Concepts
 
-Bringing Bitcoin to EVM-based chains or vice versa is not a simple process. To accomplish this, Garden utilizes an atomic swap contract. If Alice, a trader, wants to swap her Bitcoin for an asset on an EVM-based chain or Ethereum itself, she needs a way to communicate with Garden that she wants to swap Bitcoin. This is where Garden comes into play; Garden uses an Orderbook engine to create orders that are matched by actors known as fillers. Alice can now use the Garden to place an order to swap her Bitcoin for WBTC on Ethereum. We'll cover more details on how this swapping works below.
+Bringing Bitcoin to EVM-based chains or vice versa is not a simple process. To accomplish this, Garden utilizes an atomic swap contract. If Alice, a trader, wants to swap her Bitcoin for an asset on an EVM-based chain or Ethereum itself, she needs a way to communicate with Garden that she wants to swap Bitcoin. This is where Garden comes into play; Garden uses an Orderbook engine to create orders that are matched by actors known as Fillers. Alice can now use the Garden to place an order to swap her Bitcoin for WBTC on Ethereum. We'll cover more details on how this swapping works below.
 
 ![alice creates order](../images/alice_create_order.png)
 
@@ -44,6 +44,6 @@ When the trader and the Filler have initiated the order, the trader can now rede
 
 ### Refunding
 
-The contract has a refund mechanism if the trader fails to redeem the funds. The trader has the option to refund the funds back to their wallet. Similarly, if the trader fails to redeem the funds, the Filler refunds back their funds. The refund process operates on a time-based mechanism, allowing funds to be refunded after a specified period. Typically, traders have a refund period of 48 hours, while fillers have a refund period of 24 hours.
+The contract has a refund mechanism if the trader fails to redeem the funds. The trader has the option to refund the funds back to their wallet. Similarly, if the trader fails to redeem the funds, the Filler refunds back their funds. The refund process operates on a time-based mechanism, allowing funds to be refunded after a specified period. Typically, traders have a refund period of 48 hours, while Fillers have a refund period of 24 hours.
 
 ![refunding](../images/refunding.png)

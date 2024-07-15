@@ -10,7 +10,7 @@ Garden is unlike traditional 'bridges' and doesn't have a custodian network or m
 
 ![existingSolutions](../../images/existingSolutions.png)
 
-Integrators can support Bitcoin swaps in their application by integrating the Garden [SDK](/docs/developers/sdk/Sdk.md).
+By integrating the Garden [SDK](/docs/developers/sdk/Sdk.md), you unlock the potential to bring Bitcoin into your DeFi application, providing your users with the ability to seamlessly swap actual Bitcoin (BTC) with any asset. This integration not only enhances the user experience but also positions your application at the forefront of DeFi innovation, attracting more users who value speed, security, and cross-chain compatibility.
 
 ## New to Garden?
 
