@@ -11,9 +11,9 @@ There are two ways to provide liquidity into the Garden ecosystem:
 
 ### Providing liquidity to Garden
 
-Gardeners can become order fillers by bonding 210,000 $SEED. Registered fillers get access to facilitate Garden’s order flow and receive the fee paid by the respective user. To be an efficient Filler, a gardener should be able to run arbitrage bots, have accessible funds to provide liquidity, have tools/strategies to rebalance liquidity, and have the technical know-how to run these bots with no downtime.
+Gardeners can become order Fillers by bonding 210,000 SEED. Registered Fillers get access to facilitate Garden’s order flow and receive the fee paid by the respective user. To be an efficient Filler, a gardener should be able to run arbitrage bots, have accessible funds to provide liquidity, have tools/strategies to rebalance liquidity, and have the technical know-how to run these bots with no downtime.
 
-**Requirement:** Staking 210,000 SEED + providing 10BTC liquidity.
+**Requirement:** Staking 210,000 SEED + providing 10 BTC liquidity.
 
 **Return:** 0.3% of the fees collected - (0.07% to stakers, 0.03% to integration partners, adjustable by Filler).
 

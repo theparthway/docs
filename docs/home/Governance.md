@@ -8,6 +8,9 @@ At Garden, we have always been vocal about our community-first ethos. The gover
 
 The [multiplier effect](../home/basics/stake/Stake.md#staking-multiplier) discussed in staking applies to governance votes as well.
 
+![voting multiplier](./images/voting-multiplier.png)
+For example, if you hold 21,000 SEED and it is staked for 24 months, then your total voting power is 30 votes.
+
 **Prerequisites for raising a proposal:**
 
 - 500 votes for creating a governance proposal
@@ -17,11 +20,13 @@ The [multiplier effect](../home/basics/stake/Stake.md#staking-multiplier) discus
 
 ### 1. Sentiment Check
 
-Before raising a proposal at Garden, it is essential to initiate a Sentiment Check in the [#Governance](https://discord.gg/kqMBgeAKAh) channel on our Discord. This preliminary step allows you to gauge community interest and determine whether there is sufficient support to alter the status quo. Engage with community members to discuss your idea, gather feedback, and understand the community's perspective. If your proposal message on Discord receives more than 20 thumbs up, then you can move to the next step of the formal proposal process.
+Before raising a proposal at Garden, it is essential to initiate a Sentiment Check in the [#Governance](https://discord.gg/kqMBgeAKAh) channel on our Discord. This preliminary step allows you to gauge community interest and determine whether there is sufficient support to alter the status quo. Engage with community members to discuss your idea, gather feedback, and understand the community's perspective. If your proposal message on Discord receives more than 10 thumbs up, then you can move to the next step of the formal proposal process.
+
+Once sentiment check is passed the proposal moves to Garden Improvement Proposal (GIP) stage, where gardeners who have staked SEED will formally vote on the proposal via Snapshot.
 
 ### 2. Raise a Proposal
 
-After your proposal receives over 20 thumbs up on Discord, indicating successful passage through the Sentiment Check, you can proceed to the formal proposal stage. Proposals should be submitted for community voting on [Snapshot](https://snapshot.org/#/gardenfinance.eth).
+After your proposal receives over 10 thumbs up on Discord, indicating successful passage through the Sentiment Check, you can proceed to the formal proposal stage. Proposals should be submitted for community voting on [Snapshot](https://snapshot.org/#/gardenfinance.eth).
 
 In your proposal, clearly state the problem you aim to address and describe the proposed solution in detail. Outline actionable steps required to implement this solution, providing links to any relevant code repositories or resources. Additionally, discuss the expected outcomes, detailing both the potential benefits and any risks. This comprehensive approach ensures the community can make well-informed decisions on each proposal.
 
