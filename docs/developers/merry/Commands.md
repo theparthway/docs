@@ -70,7 +70,7 @@ Keep your testing environment up-to-date by updating all Docker images.
 ### Fund accounts
 
 ```bash
-merry faucet <address>
+merry faucet --to <address>
 ```
 
 Fund any EVM or Bitcoin address for testing purposes. Replace `<address/>` with the address you want to fund. It could be a Bitcoin or Ethereum address.
