@@ -1,6 +1,7 @@
 ---
 id: demo-dapp
 ---
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
@@ -9,7 +10,6 @@ import TabItem from '@theme/TabItem';
 :::note
 This guide accompanies the [gardenfi/demo-dapp](https://github.com/gardenfi/demo-dapp) and is intended solely for learning purposes, and not for production use.
 :::
-
 
 ## Introduction
 
@@ -21,9 +21,10 @@ The user interface looks like this:
 
 ## Environment setup
 
-To improve the developer experience, we will use [Merry](../developers/merry/Merry.md) to set up the multichain environment necessary for performing a swap. 
+To improve the developer experience, we will use [Merry](../developers/merry/Merry.md) to set up the multichain environment necessary for performing a swap.
 
 This setup includes all essential components, such as
+
 - [Orderbook](../developers/fundamentals/orderbook/Orderbook.md)
 - [Filler](../developers/fundamentals/filler/filler.md)
 - [Faucet](https://www.alchemy.com/faucets#faucets-switchback-right-light)
@@ -43,6 +44,7 @@ curl https://get.merry.dev | bash
 ```bash
 merry go
 ```
+
 </TabItem>
 
 <TabItem value="without-explorer" label="without explorer">
@@ -50,6 +52,7 @@ merry go
 ```bash
 merry go --headless
 ```
+
 </TabItem>
 
 </Tabs>
@@ -105,7 +108,7 @@ import topLevelAwait from 'vite-plugin-top-level-await';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-// highlight-next-line
+  // highlight-next-line
   plugins: [react(), wasm(), nodePolyfills(), topLevelAwait()],
 });
 ```
@@ -156,7 +159,7 @@ Next, let's create a hook that sets the Garden instance.
 ```tsx title="/src/store.tsx"
 // `useGardenSetup` has to be called at the root level only once
 const useGardenSetup = () => {
-// this could also be useWeb3React (a type of browserProvider from ethers)
+  // this could also be useWeb3React (a type of browserProvider from ethers)
   const { evmProvider } = useMetaMaskStore();
   const { setGarden } = gardenStore();
 
@@ -167,11 +170,11 @@ const useGardenSetup = () => {
 
       const bitcoinProvider = new BitcoinProvider(
         BitcoinNetwork.Regtest,
-        "http://localhost:30000"
+        'http://localhost:30000'
       );
 
       const orderbook = await Orderbook.init({
-        url: "http://localhost:8080",
+        url: 'http://localhost:8080',
         signer: signer,
         opts: {
           // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -181,14 +184,14 @@ const useGardenSetup = () => {
       });
 
       const wallets = {
-// highlight-next-line
+        // highlight-next-line
         [Chains.bitcoin_regtest]: new BitcoinOTA(bitcoinProvider, signer),
         [Chains.ethereum_localnet]: new EVMWallet(signer),
       };
 
       const garden = new GardenJS(orderbook, wallets);
 
-// highlight-next-line
+      // highlight-next-line
       setGarden(garden, wallets[Chains.bitcoin_regtest]);
     })();
   }, [evmProvider, setGarden]);
@@ -203,8 +206,8 @@ For more on creation of wallets you can refer to [Creating Wallets](../developer
 
 ### useMetaMaskStore hook
 
-``` tsx title="/src/store.tsx"
-import { BrowserProvider } from "ethers";
+```tsx title="/src/store.tsx"
+import { BrowserProvider } from 'ethers';
 
 type EvmWalletState = {
   metaMaskIsConnected: boolean;
@@ -216,12 +219,12 @@ type EvmWalletAction = {
 };
 
 const networkConfig = {
-  chainId: "0x7A69",
-  chainName: "ethereum localnet",
-  rpcUrls: ["http://localhost:8545"],
+  chainId: '0x7A69',
+  chainName: 'ethereum localnet',
+  rpcUrls: ['http://localhost:8545'],
   nativeCurrency: {
-    name: "Ethereum",
-    symbol: "ETH",
+    name: 'Ethereum',
+    symbol: 'ETH',
     decimals: 18,
   },
 };
@@ -234,22 +237,22 @@ const useMetaMaskStore = create<EvmWalletState & EvmWalletAction>((set) => ({
       let provider = new BrowserProvider(window.ethereum);
       let network = await provider.getNetwork();
 
-//highlight-start
+      //highlight-start
       if (network.chainId !== 31337n) {
         await window.ethereum.request({
-          method: "wallet_addEthereumChain",
+          method: 'wallet_addEthereumChain',
           params: [networkConfig],
         });
         provider = new BrowserProvider(window.ethereum);
       }
-//highlight-end
+      //highlight-end
 
       set(() => ({
         evmProvider: provider,
         metaMaskIsConnected: true,
       }));
     } else {
-      throw new Error("MetaMask not Found");
+      throw new Error('MetaMask not Found');
     }
   },
 }));
@@ -263,22 +266,22 @@ const useMetaMaskStore = create<EvmWalletState & EvmWalletAction>((set) => ({
 ## Root component
 
 ```tsx title="/src/App.tsx"
-import SwapComponent from "./SwapComponent";
-import TransactionsComponent from "./TransactionComponent";
-import Balances from "./Balances";
-import { useGardenSetup } from "./store";
-import "./App.css";
+import SwapComponent from './SwapComponent';
+import TransactionsComponent from './TransactionComponent';
+import Balances from './Balances';
+import { useGardenSetup } from './store';
+import './App.css';
 
 function App() {
-// highlight-next-line
+  // highlight-next-line
   useGardenSetup();
   return (
     <div id="container">
-// highlight-start
+      // highlight-start
       <Balances />
       <SwapComponent></SwapComponent>
       <TransactionsComponent></TransactionsComponent>
-// highlight-end
+      // highlight-end
     </div>
   );
 }
@@ -286,8 +289,8 @@ function App() {
 export default App;
 ```
 
-- The `Balances` component displays the BTC & WBTC balances of the users wallets. 
-- The `SwapComponent` handles the logic for the swap screen, allowing users to input amounts and initiate the swap. 
+- The `Balances` component displays the BTC & WBTC balances of the users wallets.
+- The `SwapComponent` handles the logic for the swap screen, allowing users to input amounts and initiate the swap.
 - The `TransactionsComponent` is responsible for fetching the latest transactions of the currently active EVM account.
 - Additionally, `App` calls the `useGardenSetup` hook, which sets up the Garden instance and the BitcoinOTA.
 
@@ -303,16 +306,16 @@ We haven't used Tailwind CSS or any other CSS library, and discussing CSS specif
 const Balances: React.FC = () => {
   const { bitcoin } = useGarden();
   const { evmProvider } = useMetaMaskStore();
-  const [bitcoinBalance, setBitcoinBalance] = useState("0");
-  const [wbtcBalance, setWBTCBalance] = useState("0");
-  const { isMMPopupOpen, isSigned, setIsSigned, setIsMMPopupOpen } = useSignStore();
+  const [bitcoinBalance, setBitcoinBalance] = useState('0');
+  const [wbtcBalance, setWBTCBalance] = useState('0');
+  const { isMMPopupOpen, isSigned, setIsSigned, setIsMMPopupOpen } =
+    useSignStore();
 
   const fetchBalance = useCallback(async () => {
-  /*
+    /*
   `fetchBalance` logic discussed later 
   */
   }, [bitcoin, evmProvider, isMMPopupOpen]);
-
 
   // Updates the balances every 10sec
   useEffect(() => {
@@ -325,7 +328,7 @@ const Balances: React.FC = () => {
     };
   }, [fetchBalance]);
 
-  // Updates the balances on the first render 
+  // Updates the balances on the first render
   useEffect(() => {
     fetchBalance();
   }, [fetchBalance]);
@@ -339,7 +342,7 @@ const Balances: React.FC = () => {
 };
 ```
 
-The `Balances` component fetches and displays the users Bitcoin (BTC) and Wrapped Bitcoin (WBTC) balances using `useGarden` and `useMetaMaskStore` hooks. It manages state for the balances, MetaMask popup visibility, and user sign-in status. 
+The `Balances` component fetches and displays the users Bitcoin (BTC) and Wrapped Bitcoin (WBTC) balances using `useGarden` and `useMetaMaskStore` hooks. It manages state for the balances, MetaMask popup visibility, and user sign-in status.
 
 ```tsx
 const fetchBalance = useCallback(async () => {
@@ -356,7 +359,7 @@ const fetchBalance = useCallback(async () => {
     setBitcoinBalance(Number(formatUnits(balance, 8)).toFixed(6));
 
     const erc20 = new Contract(
-      "0x5FbDB2315678afecb367f032d93F642f64180aa3",
+      '0x5FbDB2315678afecb367f032d93F642f64180aa3',
       ERC20ABI,
       evmProvider
     );
@@ -378,7 +381,7 @@ const fetchBalance = useCallback(async () => {
 ]);
 ```
 
-- As previously discussed in the [useGardern Hook](/cookbook/demo-dapp#usegarden-hook) section, the `BitcoinOTA` instance is instantiated using the `signer` provided by the `evmProvider` (which is MetaMask in our case). Consequently, the popup prompts us to authorize the signer. 
+- As previously discussed in the [useGardern Hook](/cookbook/demo-dapp#usegarden-hook) section, the `BitcoinOTA` instance is instantiated using the `signer` provided by the `evmProvider` (which is MetaMask in our case). Consequently, the popup prompts us to authorize the signer.
 - The exact moment that tiggers the MetaMask popup is the `await bitcoin.getBalance()` line, highlighted above.
 - The remaining logic manages two distinct states: one controls the MetaMask popup (`setIsMMPopupOpen`), while the other tracks whether the signer has been authorized (`isSigned`). If the request hasn't been signed and the popup is closed, it will open automatically (initiated by `bitcoin.getBalance`, which requires the signer). Once the transaction is signed, the popup remains closed for subsequent balance retrievals.
 
@@ -395,8 +398,8 @@ const SwapComponent: React.FC = () => {
     wbtcAmount: null,
   });
 
-  const changeAmount = (of: "WBTC" | "BTC", value: string) => {
-    if (of === "WBTC") {
+  const changeAmount = (of: 'WBTC' | 'BTC', value: string) => {
+    if (of === 'WBTC') {
       handleWBTCChange(value);
     }
   };
@@ -421,9 +424,9 @@ const SwapComponent: React.FC = () => {
 };
 ```
 
-- `WalletConnect` manages the logic for connecting to MetaMask. 
-- `SwapAmount` handles the logic for inputting amounts. 
-- `Swap` manages addresses and the actual swapping process. 
+- `WalletConnect` manages the logic for connecting to MetaMask.
+- `SwapAmount` handles the logic for inputting amounts.
+- `Swap` manages addresses and the actual swapping process.
 
 Let's examine the `Swap` component.
 
@@ -432,7 +435,7 @@ import { Assets } from '@gardenfi/orderbook';
 
 type SwapAndAddressComponentProps = {
   amount: AmountState;
-  changeAmount: (of: "WBTC" | "BTC", value: string) => void;
+  changeAmount: (of: 'WBTC' | 'BTC', value: string) => void;
 };
 
 const Swap: React.FC<SwapAndAddressComponentProps> = ({
@@ -453,19 +456,19 @@ const Swap: React.FC<SwapAndAddressComponentProps> = ({
     getAddress();
   }, [bitcoin]);
 
-// highlight-start
+  // highlight-start
   const handleSwap = async () => {
     if (
       !garden ||
-      typeof Number(wbtcAmount) !== "number" ||
-      typeof Number(btcAmount) !== "number"
+      typeof Number(wbtcAmount) !== 'number' ||
+      typeof Number(btcAmount) !== 'number'
     )
       return;
 
     const sendAmount = Number(wbtcAmount) * 1e8;
     const recieveAmount = Number(btcAmount) * 1e8;
 
-    changeAmount("WBTC", "");
+    changeAmount('WBTC', '');
 
     await garden.swap(
       Assets.ethereum_localnet.WBTC,
@@ -474,7 +477,7 @@ const Swap: React.FC<SwapAndAddressComponentProps> = ({
       recieveAmount
     );
   };
-// highlight-end
+  // highlight-end
 
   return (
     <div className="swap-component-bottom-section">
@@ -484,13 +487,13 @@ const Swap: React.FC<SwapAndAddressComponentProps> = ({
           <input
             id="receive-address"
             placeholder="Enter BTC Address"
-            value={btcAddress ? btcAddress : ""}
+            value={btcAddress ? btcAddress : ''}
             onChange={(e) => setBtcAddress(e.target.value)}
           />
         </div>
       </div>
       <button
-        className={`button-${metaMaskIsConnected ? "white" : "black"}`}
+        className={`button-${metaMaskIsConnected ? 'white' : 'black'}`}
         onClick={handleSwap}
         disabled={!metaMaskIsConnected}
       >
@@ -507,21 +510,21 @@ The core logic we want to highlight is encapsulated in the `handleSwap` function
 const handleSwap = async () => {
   if (
     !garden ||
-    typeof Number(wbtcAmount) !== "number" ||
-    typeof Number(btcAmount) !== "number"
+    typeof Number(wbtcAmount) !== 'number' ||
+    typeof Number(btcAmount) !== 'number'
   )
     return;
 
   const sendAmount = Number(wbtcAmount) * 1e8; // Convert WBTC to satoshi
   const receiveAmount = Number(btcAmount) * 1e8; // Convert BTC to satoshi
 
-  changeAmount("WBTC", ""); // Clear WBTC input
+  changeAmount('WBTC', ''); // Clear WBTC input
 
   await garden.swap(
     Assets.ethereum_localnet.WBTC, // Source asset
-    Assets.bitcoin_regtest.BTC,    // Destination asset
-    sendAmount,                    // Amount to send
-    receiveAmount                  // Amount to receive
+    Assets.bitcoin_regtest.BTC, // Destination asset
+    sendAmount, // Amount to send
+    receiveAmount // Amount to receive
   );
 };
 ```
@@ -547,7 +550,7 @@ function TransactionsComponent() {
 
       if (!evmAddress) return;
 
-// highlight-start
+      // highlight-start
       garden.subscribeOrders(evmAddress, (updatedOrders) => {
         setOrders((prevOrders) => {
           const updatedOrdersMap = new Map(prevOrders);
@@ -558,7 +561,7 @@ function TransactionsComponent() {
         });
       });
     };
-//highlight-end
+    //highlight-end
 
     fetchOrders();
   }, [garden, evmProvider]);
@@ -579,10 +582,10 @@ function TransactionsComponent() {
 }
 ```
 
-`garden.subscribeOrders` establishes a socket connection with the Orderbook backend which is running on [`http://localhost:8080`](http://localhost:8080). 
+`garden.subscribeOrders` establishes a socket connection with the Orderbook backend which is running on [`http://localhost:8080`](http://localhost:8080).
 
 :::note
-Orderbook fetches **all** orders initially and **only** updated-orders on subsequent requests. 
+Orderbook fetches **all** orders initially and **only** updated-orders on subsequent requests.
 :::
 
 ![Order Component](./images/order_component.png)
@@ -614,6 +617,7 @@ To resolve this issue, you can fund your EVM address using Merry with the follow
 ```bash
 merry faucet --to <EVM Address>
 ```
+
 This will provide the necessary funds to cover gas fees. Please wait 10 seconds for the EVM balance to update on the frontend.
 
 ### Unable to initiate swap
@@ -621,7 +625,9 @@ This will provide the necessary funds to cover gas fees. Please wait 10 seconds 
 This can happen for two reasons, either the sending cap request hasn't been approved (you can verify this by checking the Activity section of MetaMask, where it will appear as the first request), or there is a mismatch between the localnet Merry and MetaMask due to issues such as Merry's chain data being lost or deleted.
 
 In both scenarios, follow these steps:
+
 1. Clear MetaMask
+
 - Ensure the localnet network is selected.
 - Click on the three-dot menu, then go to Settings > Advanced > Clear Activity Tab Data.
 
@@ -632,7 +638,7 @@ Use the following commands:
 ```bash
 merry stop --delete
 sudo rm -rf ~/.merry
-merry start
+merry go
 ```
 
 Checkout full code for Demo dApp [here](https://github.com/gardenfi/demo-dapp).
