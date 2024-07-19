@@ -30,6 +30,7 @@ import {
   Assets,
   Actions,
   parseStatus,
+  TESTNET_ORDERBOOK_API
 } from "@gardenfi/orderbook";
 import { GardenJS } from "@gardenfi/core";
 import { JsonRpcProvider, Wallet } from "ethers";
@@ -47,6 +48,7 @@ const evmWallet = new EVMWallet(
 
 (async () => {
   const orderbook = await Orderbook.init({
+    url: TESTNET_ORDERBOOK_API, // add this line only for testnet
     signer: wallet,
   });
 
