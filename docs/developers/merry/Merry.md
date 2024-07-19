@@ -4,6 +4,8 @@ title: Merry
 ---
 
 import MerryTitle from "./Title";
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 # <MerryTitle />
 
@@ -20,7 +22,7 @@ Filler is a bot to fill orders based on strategies set, learn more about it in t
 ## Installation
 
 :::note
-Merry is only available for Linux and MacOS with arm64 and amd64 architectures.
+Merry supports arm64 and amd64 architectures. For Windows users, you are required to use Windows Subsystem for Linux (WSL) to run Merry.
 :::
 
 ### Prerequisites
@@ -29,10 +31,23 @@ Before using Merry, ensure you have Docker installed and running on your system.
 
 ## Install using the script
 
-You can install Merry using the following command.
+<Tabs>
+<TabItem value="unix" label="Linux & MacOS" default>
+Run the following command to install Merry
 
 ```bash
 curl https://get.merry.dev | bash
 ```
+
+</TabItem>
+<TabItem value="windows" label="Windows">
+In a WSL terminal, run `sudo dockerd` and verify if the docker daemon is running, then
+
+```bash
+curl https://get.merry.dev | bash
+```
+
+</TabItem>
+</Tabs>
 
 Merry stores its configuration files and other data in a directory on your system. This directory is typically named `.merry`.
