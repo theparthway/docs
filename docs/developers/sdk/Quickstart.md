@@ -35,9 +35,15 @@ import {
 import { GardenJS } from "@gardenfi/core";
 import { JsonRpcProvider, Wallet } from "ethers";
 
-// create your bitcoin wallet
+// Option 1: Create a bitcoin wallet from a private key
 const bitcoinWallet = BitcoinWallet.fromPrivateKey(
   "Your PK",
+  new BitcoinProvider(BitcoinNetwork.Mainnet)
+);
+
+// Option 2: Create a bitcoin wallet from a WIF key
+const bitcoinWallet = BitcoinWallet.fromWIF(
+  "Your WIF",
   new BitcoinProvider(BitcoinNetwork.Mainnet)
 );
 
@@ -75,7 +81,7 @@ const evmWallet = new EVMWallet(
 
     const action = parseStatus(order);
 
-    if (action === Actions.UserCanInitiate || Actions.UserCanRedeem) {
+    if (action === Actions.UserCanInitiate || action === Actions.UserCanRedeem) {
       const swapper = garden.getSwap(order);
       const swapOutput = await swapper.next();
       console.log(

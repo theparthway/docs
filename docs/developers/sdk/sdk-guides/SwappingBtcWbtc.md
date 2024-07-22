@@ -38,9 +38,14 @@ import {
 import { JsonRpcProvider, Wallet } from 'ethers';
 
 const bitcoinProvider = new BitcoinProvider(BitcoinNetwork.Mainnet);
-const bitcoinPk = 'YOUR BITCOIN PRIVATE KEY';
 
+// Option 1: Create a bitcoin wallet from a private key
+const bitcoinPk = 'YOUR BITCOIN PRIVATE KEY';
 const bitcoinWallet = BitcoinWallet.fromPrivateKey(bitcoinPk, bitcoinProvider);
+
+// Option 2: Create a bitcoin wallet from a WIF key
+const wif = 'YOUR WIF KEY'
+const bitcoinWallet = BitcoinWallet.fromWIF(wif, bitcoinProvider);
 
 const ethereumPk = 'YOUR ETHEREUM PRIVATE KEY';
 const ethereumProvider = new JsonRpcProvider('https://rpc.ankr.com/eth');

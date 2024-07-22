@@ -30,9 +30,14 @@ import {
 } from "@catalogfi/wallets";
 
 const provider = new BitcoinProvider(BitcoinNetwork.Mainnet);
-const privateKey = "YOUR PRIVATE KEY";
 
-const wallet = BitcoinWallet.fromPrivateKey(privateKey, provider);
+// Option 1: Create a bitcoin wallet from a private key
+const bitcoinPk = 'YOUR BITCOIN PRIVATE KEY';
+const bitcoinWallet = BitcoinWallet.fromPrivateKey(bitcoinPk, bitcoinProvider);
+
+// Option 2: Create a bitcoin wallet from a WIF key
+const wif = 'YOUR WIF KEY'
+const bitcoinWallet = BitcoinWallet.fromWIF(wif, bitcoinProvider);
 ```
 
 By default, the wallet uses `p2wpkh` (Pay-to-Witness-Public-Key-Hash) to derive addresses. If you want to use a different address type, you can pass it as the third argument in the `opts` object.
