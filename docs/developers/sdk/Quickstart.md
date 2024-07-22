@@ -48,14 +48,13 @@ const bitcoinWallet = BitcoinWallet.fromWIF(
 );
 
 // create your evm wallet
-const evmWallet = new EVMWallet(
-  new Wallet("Your PK", new JsonRpcProvider("https://rpc.ankr.com/eth"))
-);
+const signer = new Wallet("Your PK", new JsonRpcProvider("https://rpc.ankr.com/eth"));
+const evmWallet = new EVMWallet(signer);
 
 (async () => {
   const orderbook = await Orderbook.init({
     url: TESTNET_ORDERBOOK_API, // add this line only for testnet
-    signer: wallet,
+    signer,
   });
 
   const wallets = {
