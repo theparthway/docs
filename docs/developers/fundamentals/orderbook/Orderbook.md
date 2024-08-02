@@ -138,7 +138,7 @@ Let's combine the statuses to get a global status of the order:
 | 2            | 2                            | 1                           | Follower Initiate Detected       |
 | 2            | 2                            | 2                           | Follower Initiated               |
 | 2            | x                            | 3                           | Follower Expired                 |
-| 2            | 4                            | 2                           | Initiator Redeem Detected        |
+| 2            | 2                            | 4                           | Initiator Redeem Detected        |
 | 2            | 4                            | 4                           | Follower Redeem Detected         |
 | 3            | 6                            | 6                           | Settled (Both redeems confirmed) |
 | 2            | 5                            | x                           | Initiator Refund Detected        |
