@@ -18,18 +18,19 @@ For example, if you hold 21,000 SEED and it is staked for 24 months, then your t
 
 ## Proposal Process:
 
-### 1. Sentiment Check
+### 1. Temp Check
 
-Before raising a proposal at Garden, it is essential to initiate a Sentiment Check. This preliminary step allows you to gauge community interest and determine whether there is sufficient support to alter the status quo. Follow these steps to initiate a sentiment check:
+Before raising a proposal at Garden, it is essential to initiate a Temp Check. This preliminary step allows you to gauge community interest and determine whether there is sufficient support to alter the status quo. Follow these steps to initiate a sentiment check:
+
 #### Engage with community
 Discuss your idea with community members to gather feedback and understand their perspectives.
-Choose a platform for your Sentiment Check. This can be done via:
+Choose a platform for your Temp Check. This can be done via:
 - **Discord:** Post a message in the #governance channel.
-- **Twitter:** Create a poll to gather responses.
+- **X:** Post a tweet or create a poll to gather responses.
 
 #### Criteria for moving forward
-- **Discord:** If your proposal message receives more than 10 :arrow_up_small: (up votes), you can proceed to the next step.
-- **Twitter:** If your poll receives more than 20 responses, this indicates sufficient interest to move forward.
+- **Discord:** 10+ :arrow_up_small: (up votes) signals enough interest to proceed for the next step.
+- **X:** 10+ likes on a tweet or 20+ poll responses signal enough interest to proceed for the next step.
 
 Once sentiment check is passed the proposal moves to Garden Improvement Proposal (GIP) stage, where gardeners who have staked SEED will formally vote on the proposal via Snapshot.
 
