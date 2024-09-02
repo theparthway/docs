@@ -10,7 +10,7 @@ id: btc-swbtc
 2. Confirm the wallet & account you want to use to perform the swap.
    ![step 2](../../images/guide-btc-swbtc-2.png)
 
-3. Select the Bitcoin chain for sending BTC. 
+3. Select the BTC Bitcoin chain to send BTC. 
    ![step 3](../../images/guide-btc-swbtc-3.png)
 
 4. Choose swBTC Ethereum to receive. 
