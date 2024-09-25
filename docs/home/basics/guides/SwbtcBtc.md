@@ -10,7 +10,7 @@ id: swbtc-btc
 2. Confirm the wallet & account you want to use to perform the swap. 
    ![step 2](../../images/guide-swbtc-btc-2.png)
 
-3. Enter the amount of swBTC you want to swap for BTC, in the “Receive address” field, enter the Bitcoin Taproot wallet address where you want to receive the BTC.
+3. Enter the amount of swBTC you want to swap for BTC, in the “Receive address” field, enter the Bitcoin  wallet address where you want to receive the BTC.
    ![step 3](../../images/guide-swbtc-btc-3.png)
 
 4. Hit “Initiate” and sign the transaction; you will be promoted to “Deposit swBTC.”  
