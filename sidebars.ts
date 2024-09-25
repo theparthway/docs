@@ -50,6 +50,8 @@ const sidebars: SidebarsConfig = {
             'home/basics/guides/wbtc-wbtc',
             'home/basics/guides/btc-swbtc',
             'home/basics/guides/swbtc-btc',
+            'home/basics/guides/btc-dlcbtc',
+            'home/basics/guides/dlcbtc-btc',
             'home/basics/guides/stake-seed',
           ],
         },
