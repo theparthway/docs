@@ -11,6 +11,12 @@ This section outlines the various blockchain networks where Bitcoin or its wrapp
 
 BTC on the Bitcoin chain to WBTC on the Ethereum/Arbitrum chain and vice versa.
 
+Garden supports all Bitcoin address types. Here's the list:
+- **Legacy (P2PKH):** The original Bitcoin address format that starts with '1', used for sending payments directly to a recipient's public key hash.
+- **Nested SegWit (P2SH-P2WPKH):** Starts with '3', it wraps a SegWit address in a script hash to maintain compatibility with systems that only recognize the older P2SH format.
+- **Native SegWit (P2WPKH):** Uses the Bech32 encoding format, starts with 'bc1', and directly supports SegWit, reducing transaction fees and increasing block efficiency.
+- **Taproot (P2TR):** A type of Native SegWit address also starting with 'bc1', it leverages Schnorr signatures and MAST to offer more efficient use of block space and enhanced privacy features.
+
 </details>
 
 <details>
